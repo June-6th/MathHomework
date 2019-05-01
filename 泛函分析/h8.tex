@@ -1,4 +1,32 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
+\subsection{第 4 题}
+% 由柯西不等式可得 $A_n$ 为有界线性算子.
+任意 $x(t) \in C[-\pi, \pi]$, 设其形式傅立叶级数为
+\[
+    x(t) = \frac{a_0}{2} + \sum_{i = 1}^{\infty}(a_k \cos{kt} + b_k \cos{kt}),
+\]
+其前 $n + 1$ 项部分和为:
+% ref 书第 68 页
+\begin{align*}
+     & \frac{a_0}{2} + \sum_{i = 1}^{n}(a_k \cos kt + b_k \sin kt) \\
+    =& \frac{1}{\pi} \int_{-\pi}^{\pi} x(s)(\frac{1}{2} + \sum_{i = 1}^{n} \cos k(s - t)) \, ds \\
+    =& \frac{1}{2 \pi} \int_{-\pi}^{\pi} x(s) \frac{\sin (n + \frac{1}{2})(s - t)}{\sin \frac{1}{2}(s - t)} \, ds \\
+    =& \frac{1}{2} A_n x(t).
+\end{align*}
+显然, 存在 $x_0(t) \in C[-\pi, \pi]$,
+使得其傅立叶级数在 $L^2 [-\pi, \pi]$ 中发散,
+也就是其形式傅立叶级数前 $n$ 项和组成的级数 $\{ \frac{1}{2} A_n x(t) \}_{n \in \mathbb{N}}$ 不收敛.
+故函数序列 $\{ A_n x(t) \}_{n \in \mathbb{N}}$ 亦发散.
+于是, 算子序列 $\{ A_n \}_{n \in \mathbb{N}}$ 在 $x_0(t)$ 处发散,
+故其不强收敛也不一致收敛.
+
+下面来看算子序列 $\{ A_n \}_{n \in \mathbb{N}}$ 的弱收敛性.
+算子序列 $\{ A_n \}_{n \in \mathbb{N}}$ 在 $x_0$ 处发散,
+故存在 $t_0$ 使得数列 $\{ (A_n x_0)(t_0) \}_{n \in \mathbb{N}}$ 发散.
+设 $f: A \to (A x_0)(t_0)$, 显然, $f$ 为一线性泛函.
+而数列 $\{ f(A_n) \}_{n \in \mathbb{N}} = \{ (A_n x_0)(t_0) \}_{n \in \mathbb{N}}$ 发散,
+于是算子序列 $\{ A_n \}_{n \in \mathbb{N}}$ 不弱收敛.
+
 \end{document}

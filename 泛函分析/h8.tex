@@ -29,4 +29,18 @@
 而数列 $\{ f(A_n) \}_{n \in \mathbb{N}} = \{ (A_n x_0)(t_0) \}_{n \in \mathbb{N}}$ 发散,
 于是算子序列 $\{ A_n \}_{n \in \mathbb{N}}$ 不弱收敛.
 
+\subsection{第 10 题}
+当 $\lambda \geqslant 1$ 时, $E_{\lambda} x(t) = x(t)$ 对任意的 $x \in L^2[0, 1]$ 成立, 此时 $|| E_{\lambda} || = 1$.
+当 $\lambda \leqslant 0$ 时, $E_{\lambda} x(t) = 0$ 对任意的 $x \in L^2[0, 1]$ 成立, 此时 $|| E_{\lambda} || = 0$. 
+当 $ 0 < \lambda < 1$ 时, 任意 $x(t) \in L^2[0, 1]$
+\begin{align*}
+    || E_{\lambda} x(t) || &= (\int_0^1 E_{\lambda} x^2(t) \, dt)^{\frac{1}{2}} \\
+                           &= (\int_0^{\lambda} x^2(t) \, dt)^{\frac{1}{2}} \\
+                           &\leqslant (\int_0^1 x^2(t) \, dt)^{\frac{1}{2}},
+\end{align*}
+故 $|| E_{\lambda} || \leqslant 1$;
+而当 $x(t)$ 满足对任意 $t > \lambda, x(t) = 0$ 时, $E_{\lambda} x(t) = x(t)$, 于是 $|| E_{\lambda} || \geqslant 1$;
+故 $|| E_{\lambda} || = 1$.
+综上, 当 $\lambda \leqslant 0$ 时, $|| E_{\lambda} || = 0$, 当 $\lambda > 0$ 时 $|| E_{\lambda} || = 1$.
+
 \end{document}

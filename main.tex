@@ -1,0 +1,42 @@
+% !TEX program = xelatex
+% !TEX encoding = UTF-8
+\documentclass[UTF8, a4paper, zihao=-4, linespread=1.5]{ctexrep}
+% 章节样式
+\ctexset{
+    % 不显示章节编号
+    chapter/numbering = false,
+    section/numbering = false,
+    subsection/numbering = false,
+}
+% 页面格式
+\pagestyle{plain}
+% 页边距
+\usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
+% 超链接
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+}
+
+% amsmath
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage{subfiles}
+\begin{document}
+
+% 目录中仅显示 chapter 和 section
+\setcounter{tocdepth}{1}
+% 目录中链接颜色设置为黑色
+\hypersetup{linkcolor=black}
+\tableofcontents
+% 目录页不显示页码
+\pagestyle{empty}
+\hypersetup{linkcolor=red}
+
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+
+% 课程
+
+\end{document}

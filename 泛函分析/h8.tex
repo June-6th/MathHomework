@@ -9,12 +9,14 @@
 \]
 其前 $n + 1$ 项部分和为:
 % ref 书第 68 页
-\begin{align*}
-     & \frac{a_0}{2} + \sum_{i = 1}^{n}(a_k \cos kt + b_k \sin kt) \\
-    =& \frac{1}{\pi} \int_{-\pi}^{\pi} x(s)(\frac{1}{2} + \sum_{i = 1}^{n} \cos k(s - t)) \, ds \\
-    =& \frac{1}{2 \pi} \int_{-\pi}^{\pi} x(s) \frac{\sin (n + \frac{1}{2})(s - t)}{\sin \frac{1}{2}(s - t)} \, ds \\
-    =& \frac{1}{2} A_n x(t).
-\end{align*}
+\begin{align}
+    \begin{split} \label{eq:1}
+         & \frac{a_0}{2} + \sum_{i = 1}^{n}(a_k \cos kt + b_k \sin kt) \\
+        =& \frac{1}{\pi} \int_{-\pi}^{\pi} x(s)(\frac{1}{2} + \sum_{i = 1}^{n} \cos k(s - t)) \, ds \\
+        =& \frac{1}{2 \pi} \int_{-\pi}^{\pi} x(s) \frac{\sin (n + \frac{1}{2})(s - t)}{\sin \frac{1}{2}(s - t)} \, ds \\
+        =& \frac{1}{2} A_n x(t).
+    \end{split}
+\end{align}
 显然, 存在 $x_0(t) \in C[-\pi, \pi]$,
 使得其傅立叶级数在 $L^2 [-\pi, \pi]$ 中发散,
 也就是其形式傅立叶级数前 $n$ 项和组成的级数 $\{ \frac{1}{2} A_n x(t) \}_{n \in \mathbb{N}}$ 不收敛.
@@ -28,6 +30,19 @@
 设 $f: A \to (A x_0)(t_0)$, 显然, $f$ 为一线性泛函.
 而数列 $\{ f(A_n) \}_{n \in \mathbb{N}} = \{ (A_n x_0)(t_0) \}_{n \in \mathbb{N}}$ 发散,
 于是算子序列 $\{ A_n \}_{n \in \mathbb{N}}$ 不弱收敛.
+
+\subsection{第 8 题}
+任意 $x(t) \in C[-\pi, \pi] (L^2[-\pi, \pi])$, 设其形式傅立叶级数为
+\[
+    x(t) = \frac{a_0}{2} + \sum_{i = 1}^{\infty}(a_k \cos{kt} + b_k \cos{kt}),
+\]
+由等式 (\ref{eq:1}) 可知, 其前 $n + 1$ 项部分和为 $A_n x$.
+设所有傅立叶级数收敛的函数组成空间 $X$, 且 $X$ 在 $C[-\pi, \pi]$ ($L^2[-\pi, \pi]$) 中稠密.
+容易看出 $A_n$ 在 $C[-\pi, \pi]$ ($L^2[-\pi, \pi]$) 连续, 因此我们只需在 $X$ 上计算 $\| A_n \|$.
+对于任意的常值函数 $x$, $A_n x = x$, 故 $\| A_n \| \geqslant 1$.
+三角函数为正交基, 故对于任意的 $x \in X$,
+在 $L^2[-\pi, \pi]$ 中有 $\| A_n x \| \leqslant \| x \|$, 此时 $\| A_n \| = 1$.
+% TODO: 在 $C[-\pi, \pi]$ 中...
 
 \subsection{第 9 题}
 设 $d = \sup_{n \in \mathbb{N}} | a_n |$,
@@ -49,9 +64,9 @@ $\| A x_n \| = | a_n |$ 对任意 $n \in \mathbb{N}$ 成立,
 当 $\lambda \leqslant 0$ 时, $E_{\lambda} x(t) = 0$ 对任意的 $x \in L^2[0, 1]$ 成立, 此时 $\| E_{\lambda} \| = 0$. 
 当 $ 0 < \lambda < 1$ 时, 任意 $x(t) \in L^2[0, 1]$
 \begin{align*}
-    \| E_{\lambda} x(t) \| &= (\int_0^1 E_{\lambda} x^2(t) \, dt)^{\frac{1}{2}} \\
-                           &= (\int_0^{\lambda} x^2(t) \, dt)^{\frac{1}{2}} \\
-                           &\leqslant (\int_0^1 x^2(t) \, dt)^{\frac{1}{2}},
+    \| E_{\lambda} x(t) \| &= \left( \int_0^1 E_{\lambda} x^2(t) \, dt \right)^{\frac{1}{2}} \\
+                           &= \left(\int_0^{\lambda} x^2(t) \, dt \right)^{\frac{1}{2}} \\
+                           &\leqslant \left( \int_0^1 x^2(t) \, dt \right)^{\frac{1}{2}},
 \end{align*}
 故 $\| E_{\lambda} \| \leqslant 1$;
 而当 $x(t)$ 满足对任意 $t > \lambda, x(t) = 0$ 时, $E_{\lambda} x(t) = x(t)$, 于是 $\| E_{\lambda} \| \geqslant 1$;

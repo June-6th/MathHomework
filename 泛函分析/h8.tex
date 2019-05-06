@@ -31,6 +31,29 @@
 而数列 $\{ f(A_n) \}_{n \in \mathbb{N}} = \{ (A_n x_0)(t_0) \}_{n \in \mathbb{N}}$ 发散,
 于是算子序列 $\{ A_n \}_{n \in \mathbb{N}}$ 不弱收敛.
 
+\subsection{第 6 题}
+记恒同算子为 $id$.
+容易看出算子序列 $\{ A_{n} \}_{n \in \mathbb{N}}$ 在 $C[0, 1]$ 上有定义.
+任意 $x \in C[0, 1]$, $x$ 在 $[0,1]$ 上一致连续.
+故对于任意的 $\epsilon > 0$,
+存在 $\delta > 0$ 使得对于任意的 $t_1, t_2 \in [0, 1], | t_1 - t_2| < \delta$,
+有 $| x(t_1) - x(t_2) | < \epsilon$.
+函数序列 $\{ t^{1 + \frac{1}{n}} \}_{n \in \mathbb{N}}$ 在区间 $[0, 1]$ 一致收敛于 $t$,
+故对于 $\delta$, 存在 $N \in \mathbb{N}$ 使得对于任意的 $n \in \mathbb{N}, n > N$ 有 $\| t^{1 + \frac{1}{n}} - t \| < \epsilon$.
+于是有 $\| x(t^{1 + \frac{1}{n}}) - x(t) \| < \epsilon$,
+此即 $\| A_n x - x \| < \epsilon$, 故算子序列 $\{ A_{n} \}_{n \in \mathbb{N}}$ 收敛于 $id$.
+
+由上可知, 要证算子序列 $\{ A_{n} \}_{n \in \mathbb{N}}$ 不一致收敛, 只需证其不一致收敛于 $id$.
+考虑 $C[0, 1]$ 上的函数序列 $\{ x_{n} \}_{n \in \mathbb{N}}$, 其中
+\[
+    x_n(t) = \begin{cases}
+        0, & 0 \leqslant t \leqslant \left( \frac{1}{2} \right)^{1 + \frac{1}{n}} \\
+        \frac{x - \left( \frac{1}{2} \right)^{1 + \frac{1}{n}}}{\frac{1}{2} - \left( \frac{1}{2} \right)^{1 + \frac{1}{n}}}, & \left( \frac{1}{2} \right)^{1 + \frac{1}{n}} < t \leqslant \frac{1}{2} \\
+        1, & \frac{1}{2} < t \leqslant 1
+    \end{cases}
+\]
+而 $\| A_n x_n - x_n \| = 1$, 故算子序列 $\{ A_{n} \}_{n \in \mathbb{N}}$, 于是其不一致收敛.
+
 \subsection{第 8 题}
 任意 $x(t) \in C[-\pi, \pi] (L^2[-\pi, \pi])$, 设其形式傅立叶级数为
 \[

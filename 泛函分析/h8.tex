@@ -1,6 +1,19 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
 
+\subsection{第 3 题}
+记恒同算子为 $id$.
+任意 $x = \{ \alpha_{n} \}_{n \in \mathbb{N}} \in l^2$,
+\begin{align*}
+    \lim_{n \to \infty} \| P_n x - x \| &= \left( \sum_{i = n + 1}^{\infty} \alpha_i^2 \right)^{\frac{1}{2}} \\
+                    &= 0
+\end{align*}
+故算子序列 $\{ P_{n} \}_{n \in \mathbb{N}}$ 强收敛于 $id$.
+考虑 $l^2$ 中的序列 $\{ x^{(n)} \}_{n \in \mathbb{N}}$,
+其中 $x^{(n)}$ 仅有第 $n$ 个分量为 $1$, 其他分量皆为 $0$.
+而 $\| P_{n - 1} x^{(n)} - x^{(n)} \| = \sqrt{2}$,
+故算子序列 $\{ P_{n} \}_{n \in \mathbb{N}}$ 不一致收敛于 $id$.
+
 \subsection{第 4 题}
 % 由柯西不等式可得 $A_n$ 为有界线性算子.
 任意 $x(t) \in C[-\pi, \pi]$, 设其形式傅立叶级数为
@@ -52,7 +65,7 @@
         1, & \frac{1}{2} < t \leqslant 1
     \end{cases}
 \]
-而 $\| A_n x_n - x_n \| = 1$, 故算子序列 $\{ A_{n} \}_{n \in \mathbb{N}}$, 于是其不一致收敛.
+而 $\| A_n x_n - x_n \| = 1$, 故算子序列 $\{ A_{n} \}_{n \in \mathbb{N}}$ 不一致收敛于 $id$, 于是其不一致收敛.
 
 \subsection{第 8 题}
 任意 $x(t) \in C[-\pi, \pi] (L^2[-\pi, \pi])$, 设其形式傅立叶级数为

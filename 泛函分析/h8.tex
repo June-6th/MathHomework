@@ -4,10 +4,11 @@
 \subsection{第 3 题}
 记恒同算子为 $id$.
 任意 $x = \{ \alpha_{n} \}_{n \in \mathbb{N}} \in l^2$,
-\begin{align*}
-    \lim_{n \to \infty} \| P_n x - x \| &= \left( \sum_{i = n + 1}^{\infty} \alpha_i^2 \right)^{\frac{1}{2}} \\
-                    &= 0
-\end{align*}
+\[
+    \lim_{n \to \infty} \| P_n x - x \|
+    = \left( \sum_{i = n + 1}^{\infty} \alpha_i^2 \right)^{\frac{1}{2}}
+    = 0
+\]
 故算子序列 $\{ P_{n} \}_{n \in \mathbb{N}}$ 强收敛于 $id$.
 考虑 $l^2$ 中的序列 $\{ x^{(n)} \}_{n \in \mathbb{N}}$,
 其中 $x^{(n)}$ 仅有第 $n$ 个分量为 $1$, 其他分量皆为 $0$.
@@ -66,6 +67,18 @@
     \end{cases}
 \]
 而 $\| A_n x_n - x_n \| = 1$, 故算子序列 $\{ A_{n} \}_{n \in \mathbb{N}}$ 不一致收敛于 $id$, 于是其不一致收敛.
+
+\subsection{第 7 题}
+$\mathscr{B}(X)$ 有 Schauder 基, 故证明算子序列 $\{ P_{n} \}_{n \in \mathbb{N}}$ 弱收敛于 $0$, 只需证其作用在每个分量上弱收敛于 $0$, 这是显然的.
+下证算子序列 $\{ P_{n} \}_{n \in \mathbb{N}}$ 不强收敛.
+首先, 若该算子序列强收敛, 由于其弱收敛于 $0$, 则其必然强收敛于 $0$.
+故证明算子序列不强收敛, 只需证其不强收敛于 $0$.
+任意 $x \in l^2, x \neq 0$,
+\[
+    \lim_{n \to \infty} \| (P_n - 0) x \| = \| x \| > 0
+\]
+故算子序列 $\{ P_{n} \}_{n \in \mathbb{N}}$ 不强收敛.
+
 
 \subsection{第 8 题}
 任意 $x(t) \in C[-\pi, \pi] (L^2[-\pi, \pi])$, 设其形式傅立叶级数为

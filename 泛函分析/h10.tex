@@ -1,0 +1,193 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+% 习题三
+\subsection{第 3 题}
+设 $X$ 到 $X^{**}$ 的典型映射为 $\phi$, $X^*$ 到 $X^{***}$ 的典型映射为 $\psi$.
+任意 $x \in X, x^* \in X^*$, $\psi (x^*) (\phi (x)) = \phi (x) (x^*) = x^* (x)$,
+即 $\psi (x^*) \circ \phi = x^*$.
+
+\noindent \textbf{必要性}:
+只需证 $\psi$ 是满射.
+任意 $x^{***} \in X^{***}$, 考虑映射 $x^{***} \circ \phi $, 容易证明该映射在 $X^*$ 中.
+于是 $\psi (x^{***} \circ \phi) \circ \phi = x^{***} \circ \phi$, 由于 $\phi$ 是双射,
+故 $\psi (x^{***} \circ \phi) = x^{***}$, 此即 $\psi$ 是满射.
+于是 $X^*$ 是自反空间.
+
+\noindent \textbf{充分性}:
+只需证 $\phi$ 为满射, 用反证法证明之.
+假设 $\phi$ 不是满射, 则 $\phi (X) \subsetneq X^{**}$.
+由 Habn-Banach 定理的推论 1 以及 $\psi$ 为满射可知, 存在 $x^* \in X^*$, 使得 $\psi (x^*)$ 满足:
+\[
+    \psi (x^*) (\phi (X)) = \{ 0 \} , \| \psi (x^*) \| = 1;
+\]
+而
+\[
+    x^* (X) = (\psi (x^*) \circ \phi)(X) = \psi (x^*) (\phi (X)) = \{ 0 \},
+\]
+于是 $\| x^* \| = 0$, 但由典型映射的性质可知 $\| x^* \| = \| \psi (x^*) \| = 1$, 出现矛盾.
+故假设不成立, $\phi$ 为满射, 即 $X$ 是自反空间.
+
+\subsection{第 4 题}
+$X^*$ 可分, 故 $X^*$ 的单位球面 $U = \{ f | f \in X^*, \| f \| = 1\}$ 也可分, 设 $U$ 的可数稠密子集 $\{ f_n \}$.
+任意 $n \in \mathbb{N}$, 由于 $\| f_n \| = 1 > 0$, 故存在 $x_n \in X, \| x_n \| > 0$, 使得:
+\[
+    \| f_n (x_n) \| > \frac{1}{2} \| f_n \| \| x_n \| = \frac{1}{2} \| x_n \|
+\].
+设 $Z$ 为 $\{ x_n \}$ 张成的线性子空间, $Y$ 是 $Z$ 的闭包为 $X$ 的闭子空间.
+$Z$ 有 Schauder 基, 故 $Z$ 可分; 又 $Y$ 为 $Z$ 的闭包, 故 $Y$ 也可分.
+下用反证法证明 $Y = X$. 
+假设 $Y \subsetneq X$, 由 Habn-Banach 定理可知, 存在 $f \in X^*$, 使得:
+\[
+    \| f \| = 1, f(Y) = \{ 0 \}.
+\]
+于是
+\[
+    \frac{1}{2} \, \| x_n \| = \frac{1}{2} \, \| f_n \| \| x_n \| \leqslant \| f_n (x_n) \| = \| (f_n - f) (x_n) \| \leqslant \| f_n - f \| \| x_n \|
+\]
+即 $\frac{1}{2} \leqslant \| f_n - f \|$, 此与 $\{ f_n \}$ 为 $U$ 稠密子集矛盾. 故 $Y = X$, 于是 $X$ 可分.
+(此外, 由 $Y$ 的定义可知, $X$ 的一个可数稠密子集为 $\{ x_n \}$.)
+
+\subsection{第 5 题}
+首先 $L^1 [a, b]$ ($l^1$) 是 Banach 空间且可分.
+下面用反证法证明 $L^1 [a, b]$ ($l^1$) 不是自反空间.
+若 $L^1 [a, b]$ ($l^1$)是自反空间,
+则 $(L^1 [a, b])^{**}$ ($(l^1)^{**}$) 在典型映射下等距同构,
+故其亦为 Banach 空间且可分.
+有第四题可知 $(L^1 [a, b])^{*}$ ($(l^1)^{*}$) 亦可分,
+而在等距同构意义下 $(L^1 [a, b])^{*} = L^{\infty} [a, b]$ ($l^1 = l^{\infty}$) 不可分, 出现矛盾.
+故假设不成立, $L^1 [a, b]$ ($l^1$) 不是自反空间.
+
+\subsection{第 6 题}
+% ref 书第 86 页定理 3.5.2.
+$(L^p [a, b])^{*}$ 与 $L^q [a, b]$ 之间存在等距同构映射 $\phi$,
+使得对于任意 $f \in (L^p [a, b])^{*}$, 有
+\[
+    f(x) = \int_{a}^{b} x(t) \phi (f) (t) \, dt.
+\]
+于是, 对于任意的 $y \in L^q [a, b]$,
+\[
+    \lim_{n \to \infty} \int_{a}^{b} x_n(t) y(t) \, dt = 0
+\]
+等价于对于任意的 $f \in (L^p [a, b])^{*}$,
+\[
+    \lim_{n \to \infty} f(x_n) = 0,
+\]
+即点列 $\{ x_{n} \}_{n \in \mathbb{N}}$ 弱收敛于 $0$.
+而这又等价于 $\left\{ \| x_n \| \right\}_{n \in \mathbb{N}}$ 有界且对于任意的 $t \in [a, b]$ 有
+\[
+    \lim_{n \to \infty} \int_{[a, t]} x_n(t) \, dt = 0.
+\]
+由于任意的 $t \in [a, b]$, $[a, t]$ 皆为可测集, 故充分性得证.
+
+\noindent \textbf{必要性}:
+设 $\chi [a, b]$,
+\[
+    \chi [a, b] = \{ E | E \subset [a, b] \text{且可测}, \lim_{n \to \infty} \int_{E} x_n(t) \, dt = 0 \}.
+\]
+证明必要性等价于证明 $\chi [a, b]$ 包含所有可测集.
+容易看出 $\chi [a, b]$ 对可列并和除运算封闭.
+显然, 单点集在 $\chi [a, b]$ 中, 再结合条件可知所有区间都在 $\chi [a, b]$ 中,
+又 $\chi [a, b]$ 对可列并封闭, 于是所有开集都在 $\chi [a, b]$ 中.
+由积分的绝对连续性可知所有零测集都在 $\chi [a, b]$ 中,
+又所有可测集可表示为开集除去一个零测集, 故 $\chi [a, b]$ 包含所有可测集.
+
+\subsection{第 22 题}
+设 $e_n = (\overbrace{0, 0, \cdots, 1}^{n}, \cdots)$ ($n = 1, 2, \cdots$),
+以及 $(l^p)^*$ 上的映射 $\phi$,
+其中对于任意的 $f \in (l^p)^*$, $\phi (f) = \{ f(e_n) \}_{n \in \mathbb{N}}$.
+任意的 $f \in (c_0)^*$, 取
+\[
+    x_n = (\| f(e_1) \|^{q - 1} \frac{\overline{f(e_1)}}{\| f(e_1) \|},
+    \| f(e_2) \|^{q - 1} \frac{\overline{f(e_2)}}{\| f(e_2) \|},
+    \cdots,
+    \| f(e_n) \|^{q - 1} \frac{\overline{f(e_2)}}{\| f(e_2) \|}, 0, \cdots),
+\]
+对于任意的 $n \in \mathbb{N}$ 有
+\[
+    f(x_n) = \sum_{i = 1}^{n} \| f(e_i) \|^q
+\]
+另一方面, 对于任意的 $n \in \mathbb{N}$ 有
+\[
+    \| f(x_n) \|
+    \leqslant \| f \| \| x_n \|
+    \leqslant \| f \| \left( \sum_{i = 1}^{n} \| f(e_i) \|^{(q - 1) p} \right)^{\frac{1}{p}}
+    = \| f \| \left( \sum_{i = 1}^{n} \| f(e_i) \|^{q} \right)^{\frac{1}{p}}
+\]
+联合上两式可得
+\[
+    \left( \sum_{i = 1}^{n} \| f(e_i) \|^q \right)^{\frac{1}{q}} \leqslant \| f \|
+\]
+于是 $\phi (f) \in l^q$ 且 $\| f \| \geqslant \| \phi (f) \|$.
+对于任意的 $y \in l^q$, $y = (\beta_1, \beta_2, \cdots, \beta_n, \cdots)$,
+取 $l^p$ 中的线性泛函 $f$, 使得 $f(e_n) = \beta_n$ ($n = 1, 2, \cdots$),
+对于任意的 $x \in l^p$, $x = (\alpha_1, \alpha_2, \cdots, \alpha_n, \cdots)$, 有
+\[
+    \| f(x) \|
+    = \left\| \sum_{i = 1}^{\infty} \alpha_i \beta_i \right\| 
+    \leqslant \left( \sum_{i = 1}^{\infty} \| \beta_i \|^q \right)^q \left( \sum_{i = 1}^{\infty} \| \alpha_i \|^p \right)^p
+    = \| y \| \| x \|
+\]
+故 $f$ 在 $l^p$ 上有定义, 即 $f \in (l^p)^*$,
+且 $\| f \| leqslant \| y \|$, $\| f \| \leqslant \| \phi (f) \|$.
+综上, $\| f \| = \| \phi (f) \|$, $\phi$ 为等距同构映射, 且在映射 $\phi$ 下有 $(l^p)^* = l^q$.
+
+\subsection{第 23 题}
+设 $e_n = (\overbrace{0, 0, \cdots, 1}^{n}, \cdots)$ ($n = 1, 2, \cdots$),
+以及 $(c_o)^*$ 上的映射 $\phi$,
+其中对于任意的 $f \in \left( c_o \right)^*$, $\phi (f) = \{ f(e_n) \}_{n \in \mathbb{N}}$.
+任意的 $f \in (c_0)^*$, 取
+$x_n = (\frac{\overline{f(e_1)}}{\| f(e_1) \|}, \frac{\overline{f(e_2)}}{\| f(e_2) \|}, \cdots, \frac{\overline{f(e_2)}}{\| f(e_2) \|}, 0, \cdots)$,
+则对于任意的 $n \in \mathbb{N}$, $\| x_n \| = 1$ 且
+\[
+    \| f(x_n) \| = \sum_{i = 1}^{n} \frac{\overline{f(e_i)}}{\| f(e_i) \|} f(e_i) = \sum_{i = 1}^{n} \| f(e_n) \| \leqslant \| f \|,
+\]
+故 $\phi (f) \in l^1$ 且 $\| f \| \geqslant \| \phi (f) \|$.
+任意 $y \in l^1, y = (\beta_1, \beta_2, \cdots, \beta_n, \cdots)$,
+取 $c_0$ 中的线性泛函 $f$, 使得 $f(e_n) = \beta_n$,
+对于任意的 $x \in c_0, x = (\alpha_1, \alpha_2, \cdots, \alpha_n, \cdots)$, 有
+\[
+    \| f(x) \|
+    = \| \sum_{i = 1}^{\infty} \alpha_i \beta_i \|
+    \leqslant \sup_{i \in \mathbb{N}} \| \alpha_i \| \sum_{i = 1}^{\infty} \| \beta_i \|
+    = \| x \| \| y \|,
+\]
+故 $f$ 在 $c_0$ 上有定义且 $\| f \| \leqslant \| y \|$,
+即 $f \in (c_0)^*$ 且 $y = \phi (f)$, $\| f \| \leqslant \| \phi (f) \|$.
+综上, $\| f \| = \| \phi (f) \|$, $\phi$ 为等距同构映射, 且在映射 $\phi$ 下有 $(c_0)^* = l^1$.
+
+% 补充题
+\subsection{补充题 1, 2}
+$1 < p < \infty$ 的情形在书上第 86 页定理 3.5.2 已证.
+$p = 1$ 时, 若满足条件的 $g$ 存在, 取 $f = 1$, 可得
+\[
+    F(f) = \int_{a}^{b} g(x) \, dx < \infty
+\]
+于是 $g \in L^{\infty} (a, b)$.
+
+\subsection{补充题 3}
+对于任意的 $x, y \in X$, $f \in X^*$,
+\begin{align*}
+     & F(x + y)(f) \\
+    =& f(x + y) \\
+    =& f(x) + f(y) \\
+    =& F(x)(f) + F(y)(f) \\
+    =& (F(x) + F(y))(f)
+\end{align*}
+故 $F(x + y) = F(x) + F(y)$.
+又对于任意 $k \in \mathbb{K}$, $x \in X$, $f \in X^*$
+\begin{align*}
+     & F(k x)(f) \\
+    =& f(k x) \\
+    =& k f(x) \\
+    =& k F(x)(f) \\
+    =& (k F(x))(f)
+\end{align*}
+故 $F(k x) = k F(x)$.
+综上, $F$ 为线性算子.
+要证 $F$ 为单射, 只需证 $ker(F) = {0}$.
+假设存在 $x \in ker(F), x \neq 0$.
+则 $F(x) = 0$, 对于任意 $f \in X^*$ 有 $F(x)(f) = f(x) = 0$.
+但是可以定义线性泛函 $f$ 使得 $\| f(x) \| = \| x \|$, 并将其延拓到整个空间 $X$ 上, 故产生矛盾, 假设不成立. 于是 $F$ 为单射.
+
+\end{document}

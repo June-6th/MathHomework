@@ -1,0 +1,150 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+% 书习题 6-1
+\subsection{第 1 题}
+首先有
+\[
+    \begin{bmatrix}
+        \frac{\partial}{\partial r} \\
+        \frac{\partial}{\partial \theta}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \frac{\partial x}{\partial r} & \frac{\partial y}{\partial r} \\
+        \frac{\partial x}{\partial \theta} & \frac{\partial y}{\partial \theta}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{\partial}{\partial x} \\
+        \frac{\partial}{\partial y}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \cos \theta & \sin \theta \\
+        -r \sin \theta & r \cos \theta
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{\partial}{\partial x} \\
+        \frac{\partial}{\partial y}
+    \end{bmatrix}
+    .
+\]
+于是, 在极坐标变换下 $\Delta_2 u$ 的二阶微分部分 $\left( \Delta_2 u \right)_2$ 为
+\begin{align*}
+    \left( \Delta_2 u \right)_2
+    &=
+    \begin{bmatrix}
+        \frac{\partial}{\partial r} & \frac{\partial}{\partial \theta}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \cos \theta & -r \sin \theta \\
+        \sin \theta & r \cos \theta
+    \end{bmatrix}^{-1}
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \cos \theta & \sin \theta \\
+        -r \sin \theta & r \cos \theta
+    \end{bmatrix}^{-1}
+    \begin{bmatrix}
+        \frac{\partial}{\partial r} \\
+        \frac{\partial}{\partial \theta}
+    \end{bmatrix}
+    \left( u \right) \\
+    &=
+    \begin{bmatrix}
+        \frac{\partial}{\partial r} & \frac{\partial}{\partial \theta}
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & \frac{1}{r}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \cos \theta & \sin \theta \\
+        - \sin \theta & \cos \theta
+    \end{bmatrix}
+    \begin{bmatrix}
+        \cos \theta & - \sin \theta \\
+        \sin \theta & \cos \theta
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & \frac{1}{r}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{\partial}{\partial r} \\
+        \frac{\partial}{\partial \theta}
+    \end{bmatrix}
+    \left( u \right) \\
+    &=
+    \begin{bmatrix}
+        \frac{\partial}{\partial r} & \frac{\partial}{\partial \theta}
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & \frac{1}{r^2}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \frac{\partial}{\partial r} \\
+        \frac{\partial}{\partial \theta}
+    \end{bmatrix}
+    \left( u \right) \\
+    &= \frac{\partial^2 u}{\partial r^2} + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}
+    ,
+\end{align*}
+$\Delta_2 u$ 的一阶微分部分 $\left( \Delta_2 u \right)_1$ 为
+\begin{align*}
+    \left( \Delta_2 u \right)_1
+    &= \Delta_2 r \frac{\partial u}{\partial r} + \Delta_2 \theta \frac{\partial u}{\partial \theta} \\
+    &= \left( r_{xx} + r_{yy} \right) \frac{\partial u}{\partial r} + \left( \theta_{xx} + \theta_{yy} \right) \frac{\partial u}{\partial \theta} \\
+    &= \left(
+        \left( \cos \theta \right)_x + \left( \sin \theta \right)_y
+    \right) \frac{\partial u}{\partial r}
+    + \left(
+        \left( - \frac{1}{r} \sin \theta \right)_x + \left( \frac{1}{r} \cos \theta \right)_y
+    \right) \frac{\partial u}{\partial \theta} \\
+    &= \left( 
+        - \sin \theta * - \frac{1}{r} \sin \theta + \cos \theta * \frac{1}{r} \cos \theta
+    \right) \frac{\partial u}{\partial r} + 
+    \left( 
+            \left( - \sin \theta \right)_x + \left( \cos \theta \right)_y
+    \right) \frac{1}{r} \frac{\partial u}{\partial \theta} \\
+    &\quad + \left( 
+            - \sin \theta r_x + \cos \theta r_y
+    \right) \frac{1}{r^2} \frac{\partial u}{\partial \theta} \\
+    &=
+    \frac{1}{r} \left( \sin^2 \theta + \cos^2 \theta \right) \frac{\partial u}{\partial r}  +
+    \left( 
+            - \cos \theta * - \frac{1}{r} \sin \theta + \left( - \sin \theta \right)  * \frac{1}{r} \cos \theta
+    \right) \frac{1}{r} \frac{\partial u}{\partial \theta} \\
+    &\quad + \left( 
+            - \sin \theta \cos \theta + \cos \theta \sin \theta
+    \right) \frac{1}{r^2} \frac{\partial u}{\partial \theta} \\
+    &= \frac{1}{r} \frac{\partial u}{\partial r}
+    ,
+\end{align*}
+$\Delta_2$ 为二阶微分算子, 故在极坐标变换下
+\[
+    \Delta_2 u
+    = \left( \Delta_2 u \right)_1 + \left( \Delta_2 u \right)_2
+    = \frac{\partial^2 u}{\partial r^2} + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2} + \frac{1}{r} \frac{\partial u}{\partial r}.
+\]
+\subsection{第 6 题}
+设以 $P_0$ 为球心的半径为 $r$ 的球面为 $S_r$, 则
+\begin{align*}
+    \frac{3}{4 \pi R^3} \iiint_{K_R} u \, \mathrm{d} \Omega
+    &= \frac{3}{4 \pi R^3} \int_{(0, R]} \int_{S_r} u \, \mathrm{d}S \, \mathrm{d}r \\
+    &= \frac{3}{4 \pi R^3} \int_{(0, R]} 4 \pi r^2 \frac{1}{4 \pi r^2} \int_{S_r} u \, \mathrm{d}S \, \mathrm{d}r \\
+    &= \frac{3}{R^3} \int_{(0, R]} r^2 \left( \frac{1}{4 \pi r^2} \int_{S_r} u \, \mathrm{d}S \right)  \, \mathrm{d}r
+    ,
+\end{align*}
+由平均值定理可得
+\[
+    \frac{3}{4 \pi R^3} \iiint_{K_R} u \, \mathrm{d} \Omega
+    = \frac{3}{R^3} \int_{(0, R]} r^2 u \left( P_0 \right) \, \mathrm{d}r
+    = u \left( P_0 \right). 
+\]
+
+\end{document}

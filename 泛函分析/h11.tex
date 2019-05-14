@@ -1,0 +1,260 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+% 习题三
+\subsection{第 25 题}
+\noindent 1).
+任意 $f \in \overline{\mathscr{R} \left( T \right)}^\bot$, $f \left( \overline{T \left( X \right)} \right) = \left\{ 0 \right\}$.
+于是 $f \left( T \left( X \right) \right) = \left\{ 0 \right\}$, 即 $f \circ T = 0$.
+又 $f \circ T = T^* \left( f \right)$, 故 $T^* \left( f \right) = 0$, 即 $f \in \mathscr{N} \left( T^* \right)$.
+
+任意的 $f \in \mathscr{N} \left( T^* \right)$, $T^* \left( f \right) = 0$.
+又 $f \circ T = T^* \left( f \right)$, 故 $f \circ T = 0$, 即 $f \left( T \left( X \right) \right) = \left\{ 0 \right\}$.
+$f$ 为连续线性泛函, 故 $\mathscr{N} \left( f \right)$ 为闭集.
+于是 $f \left( \overline{T \left( X \right)} \right) = \left\{ 0 \right\}$, 即 $f \in \overline{\mathscr{R} \left( T \right)}^\bot$.
+
+\noindent 2).
+任意 $f \in \mathscr{R} \left( T^* \right)$, 存在 $g \in X^*$, 使得 $T^* \left( g \right) = f$.
+又 $g \circ T = T^* \left( g \right)$, 故 $f = g \circ T$.
+于是
+\[
+    f \left( \mathscr{N} \left( T \right) \right)
+    = \left( g \circ T \right) \left( \mathscr{N} \left( T \right) \right)
+    = \left\{ 0 \right\}
+\]
+即 $f \in \mathscr{N} \left( T \right)^\bot$.
+故 $\mathscr{R} \left( T^* \right) \subset \mathscr{N} \left( T \right)^\bot$.
+下证 $\mathscr{N} \left( T \right)^\bot$ 是 $X^*$ 的闭子空间.
+任意 $\mathscr{N} \left( T \right)^\bot$ 中的柯西列 $\{ f_{n} \}_{n \in \mathbb{N}}$, 由 $X^*$ 是 Banach 空间可知, 存在 $f \in X^*$ 使得
+\[
+    \lim_{n \to \infty} f_n = f
+\]
+$\{ f_{n} \}_{n \in \mathbb{N}}$ 依范数收敛于 $f$, 则也强收敛于 $f$.
+于是, 对于任意的 $x \in \mathscr{N} \left( T \right)$
+\[
+    f \left( x \right) = \lim_{n \to \infty} f_n \left( x \right) = 0
+\]
+即 $f \left( \mathscr{N} \left( T \right) \right) = \left\{ 0 \right\}$, $f \in \mathscr{N} \left( T \right)^\bot$.
+故 $\mathscr{N} \left( T \right)$ 为闭集.
+于是 $\overline{\mathscr{R} \left( T^* \right)} \subset \mathscr{N} \left( T \right)^\bot$.
+
+记典型映射为 $\phi$.
+假设 $\mathscr{N} \left( T \right)^\bot \subset \overline{\mathscr{R} \left( T^* \right)}$ 不成立, 则存在 $f \in \mathscr{N} \left( T \right)^\bot \setminus \overline{\mathscr{R} \left( T^* \right)}$.
+由 Hahn-Banach 定理及 $X$ 是自反空间可知, 存在 $x \in X$ 使得
+\[
+    \left\| \phi \left( x \right) \right\| = 1
+    , \quad
+    \phi \left( x \right) \left( f \right) = \left\| f \right\|
+    , \quad
+    \phi \left( x \right) \left( \overline{\mathscr{R} \left( T^* \right)} \right) = \left\{ 0 \right\}
+\]
+$f \left( x \right) = \phi \left( x \right) \left( f \right) = \left\| f \right\| \neq 0$, 故 $x \notin \mathscr{N} \left( T \right)$.
+$\phi \left( x \right) \left( \overline{\mathscr{R} \left( T^* \right)} \right) = \left\{ 0 \right\}$,
+则 $\phi \left( x \right) \left( \mathscr{R} \left( T^* \right) \right) = \left\{ 0 \right\}$,
+故对于任意的 $g \in X^*$, 有
+\[
+    \phi \left( x \right) \left( T^* \left( g \right) \right) = 0
+\]
+由共轭算子及典型映射定义可知, 此即 $g \left( T \left( x \right) \right) = 0$.
+由 $g$ 的任意性可知 $T \left( x \right) = 0$, 即 $x \in \mathscr{N} \left( T \right)$;
+此与 $x \notin \mathscr{N} \left( T \right)$ 矛盾, 故假设不成立,
+即 $\mathscr{N} \left( T \right)^\bot \subset \overline{\mathscr{R} \left( T^* \right)}$.
+
+\subsection{第 26 题}
+任意 $x \in \mathscr{N} \left( I - V \right) \mathlarger{\mathlarger{\mathlarger{\oplus}}} \overline{\mathscr{R} \left( I - V \right)}$,
+存在 $x_1 \in \mathscr{N} \left( I - V \right)$, $x_2 \in \overline{\mathscr{R} \left( I - V \right)}$, 使得 $x = x_1 + x_2$.
+$\forall \epsilon > 0$, $\exists x_3$ 使得 $\Delta = x_2 - \left( I - V \right) \left( x_3 \right)$ 的范数小于 $\epsilon$.
+有
+\[
+    T_n \left( x_1 \right)
+    = \left( I + \frac{1}{n} \sum_{i = 0}^{n - 1} \left( V^{i} - I \right) \right) \left( x_1 \right)
+    = I \left( x_1 \right)
+    = x_1
+\]
+以及
+\[
+    \left\| T_n \left( x_2 \right) \right\|
+    = \left\| \frac{1}{n} \sum_{i = 0}^{n - 1} V^i \left( I - V \right) + T_n \Delta \right\|
+    < \frac{1}{n} K \left\| x_2 \right\| + K \epsilon
+\]
+记 $P$, 其中 $P \left( x \right) = x_1$, 则 $P^2 \left( x \right) = P \left( x_1 \right) = x_1$, 即 $P^2 = P$.
+$\{ T_{n} \}_{n \in \mathbb{N}}$ 强收敛于 $P$.
+
+\subsection{第 27 题}
+设算子列 $\{ T_{i} \}_{i \in \mathbb{N}}$, $y = T_i \left( x \right)$,
+其中 $x = \{ \xi_{k} \}_{k \in \mathbb{N}}$, $y = \{ \eta_{k} \}_{k \in \mathbb{N}}$, $\eta_n = \sum_{j = 1}^{i} a_{n j} \xi_j$ $(n = 1, 2, \dots , i)$.
+\[
+    \lim_{i \to \infty} \left\| T_i - T \right\|
+    \leqslant \lim_{i \to \infty} \sum_{k, n = i + 1}^{\infty} \left| a_{n k} \right|^2
+    = 0
+\]
+故算子列 $\{ T_{i} \}_{i \in \mathbb{N}}$ 依范数收敛于 $T$.
+又对于任意的 $i \in \mathbb{N}$, $T_i$ 为有限秩算子, 故 $T$ 为紧算子.
+
+\subsection{第 28 题}
+取 $X$ 为具有 Schauder 基 $\{ e_{n} \}_{n \in \mathbb{N}}$ 的无限维赋范空间.
+任意 $T \in \mathscr{B} \left( X \right)$, 定义算子列 $\{ T_{n} \}_{n \in \mathbb{N}} \subset \mathscr{B} \left( X \right)$
+使得对于任意的 $n \in \mathbb{N}$, $x \in X$, $x = \sum_{i = 1}^{\infty} \xi_i e_i$ 有
+\[
+    T_n \left( x \right) = T \left( \sum_{i = 1}^{n} \xi_i e_i \right)
+\]
+更进一步取 $X$ 为 $l^p$, 其中 $1 \leqslant p < \infty$,
+则算子列 $\{ T_{n} \}_{n \in \mathbb{N}}$ 强收敛于 $T$.
+$T = id$, 即生成一例子.
+
+\subsection{补充题 1}
+记 $( \overbrace{0, 0, \dots , 1}^i, \dots )$ 为 $e_i$ $\left( i = 1, 2, \dots \right)$,
+$q$ 满足 $\frac{1}{p} + \frac{1}{q} = 1$,
+$\left\{ x_n - x \right\}$ 范数的上界为 $M > 0$.
+设 $l^p$ 上的线性泛函 $f_i$ $(i = 1, 2, \dots)$,
+使得对于任意的 $x \in l^p, x = \left( \xi_1, \xi_2, \dots , \xi_i, \dots \right)$ 有 $f_i \left( x \right) = \xi_i$.
+容易证明对于任意的 $i \in \mathbb{N}$ , $f_i$ 为有界线性泛函且 $\| f_i \| = 1$, 即 $f_i \in X^*$.
+$x_n$ 依坐标收敛于 $x$ 等价于对于任意的 $i \in \mathbb{N}$, $f_i \left( x_n \right) \to f_i \left( x \right) \left( n \to \infty \right)$.
+任意的 $T \in \left( l^p \right)^*$, $T = \sum_{i = 1}^{\infty} T \left( e_i \right) f_i$ 且 $\{ T \left( e_{i} \right) \}_{i \in \mathbb{N}} \in l^q$.
+记 $T$ 的前 $i$ 项和为 $T_i$, 则算子序列 $\{ T_{i} \}_{i \in \mathbb{N}}$ 强收敛于 $T$.
+
+$1 < p < \infty$ 时, 有
+\[
+    \lim_{i \to \infty} \| T_i - T \|
+    = \left( \sum_{j = i + 1}^{\infty} \left| T \left( e_j \right) \right|^q \right)^{\frac{1}{q}}
+    = 0
+\]
+即 $\{ T_{i} \}_{i \in \mathbb{N}}$ 依范数收敛于 $T$.
+于是, 对于任意的 $\epsilon > 0$, 存在 $N_1 \in \mathbb{N}$, 使得任意 $n_1 > N_1$ 有
+\[
+    \| T_{n_1} - T \| < \frac{\epsilon}{2 M}
+\]
+对于固定的 $n_1$, 由于 $x_n$ 依坐标收敛于 $x$, 故存在 $N_2 \in \mathbb{N}$ 使得任意 $n_2 > N_2$, 有
+\[
+    \left| f_i \left( x_n \right) - f_i \left( x \right) \right|
+    < \frac{\epsilon}{2 \sum_{j = 1}^{n_1} \left| T \left( e_j \right) \right|},
+    \quad i \in \mathbb{N}, i \leqslant N_1
+\]
+令 $n > N_2$, 则
+\begin{align*}
+    \left| T x_n - T x \right|
+    &= \left|
+        \left( T - T_{n_1} \right) \left( x_n - x \right) + T_{n_1} \left( x_n - x \right)
+    \right| \\
+    &\leqslant \left|
+        \left( T - T_{n_1} \right) \left( x_n - x \right)
+    \right|
+    + \left|
+        \sum_{i = 1}^{n_1} \left( f_i \left( x_n \right) - f_i \left( x \right)  \right) T \left( e_i \right)
+    \right| \\
+    &< \frac{\epsilon}{2 M} * M
+        + \frac{\epsilon}{2 \sum_{j = 1}^{n_1} \left| T \left( e_j \right) \right|} * \sum_{j = 1}^{n_1} \left| T \left( e_j \right) \right| \\
+    &= \epsilon
+\end{align*}
+此即 $T \left( x_n \right) \to T \left( x \right) $ $(n \to \infty)$, $x_n \xrightarrow{W} x$ $(n \to \infty)$.
+
+$p = 1$ 时, 命题不成立.
+考虑泛函 $T$, 其对任意的 $i \in \mathbb{N}$, $T \left( e_i \right) = 1$.
+显然 $T$ 可延拓至整个 $l^1$ 上并且是其上的连续线性泛函.
+点列 $\{ e_{n} \}_{n \in \mathbb{N}}$ 有界且依坐标收敛于 $0$,
+$T \left( 0 \right) = 0$, 对于任意的 $n \in \mathbb{N}$, $T \left( e_n \right) = 1$.
+于是
+\[
+    \lim_{n \to \infty} T \left( e_n \right) \neq T \left( 0 \right)
+\]
+此即为一反例.
+
+\subsection{补充题 2}
+记 $\left\{ \left\| u_n - u \right\| \right\}$ 的上确界为 $M$.
+任意 $f \in X^*$, 存在 $\nu \in \mathrm{V} [a, b]$, 使得对任意的 $x \in C[a, b]$
+\[
+    f \left( x \right) = \int_{a}^{b} x \, \mathrm{d} \nu
+\]
+有界变差函数可以表示成两个严格单增函数之差,
+而严格单增函数可以表示为含有至多可数个间断点的阶梯函数与连续严格单增函数之和,
+故有界变差函数皆可表示为连续函数与含有至多可数个间断点的阶梯函数之和.
+于是, 存在连续函数 $\sigma$, 含有至多可数个间断点的阶梯函数 $\tau$,
+使得 $\nu = \sigma + \tau$, $\mathrm{V} \left( \nu \right) = \mathrm{V} \left( \sigma \right) + \mathrm{V} \left( \tau \right)$.
+又
+\[
+    \int_{a}^{b} u \, \mathrm{d} \nu
+    = \int_{a}^{b} u \, \mathrm{d} \sigma + \int_{a}^{b} u \, \mathrm{d} \tau
+\]
+故只需分别证明
+\[
+    \lim_{n \to \infty} \int_{a}^{b} u_n \, \mathrm{d} \sigma = \int_{a}^{b} u \, \mathrm{d} \sigma
+    , \quad
+    \lim_{n \to \infty} \int_{a}^{b} u_n \, \mathrm{d} \tau = \int_{a}^{b} u \, \mathrm{d} \tau
+\]
+$\left\{ u_n \right\}$ 一致有界, $\nu, \sigma, \tau$ 有界变差, 故积分的存在性是显然的.
+
+\noindent $\mathbf{\sigma}$:
+$\{ u_{n} \}_{n \in \mathbb{N}}$ 在区间 $[a, b]$ 上处处收敛于 $u$,
+故 $\{ u_{n} \}_{n \in \mathbb{N}}$ 近一致收敛于 $u$.
+对任意的 $\delta > 0$, 存在 $E_\delta \subset [a, b]$, $\mathrm{m} E_\delta < \delta$,
+使得在 $[a, b] \setminus E_\delta$ 上 $\{ u_{n} \}_{n \in \mathbb{N}}$ 一致收敛于 $u$.
+于是, 存在 $N$ 使得当 $n > N$ 时 $\left\| u_n - u \right\| < \delta$.
+故
+\begin{align*}
+    \int_{[a, b]} u_n - u \, \mathrm{d} \sigma
+    &= \int_{E_\delta} u_n - u \, \mathrm{d} \sigma
+        + \int_{[a, b] \setminus E_\delta} u_n - u \, \mathrm{d} \sigma \\
+    &< \delta M \mathrm{V} \left( \sigma \right) + \delta \mathrm{V} \left( \sigma \right)
+\end{align*}
+于是
+\[
+    \lim_{n \to \infty} \int_{[a, b]} u_n - u \, \mathrm{d} \sigma = 0
+    , \quad
+    \lim_{n \to \infty} \int_{[a, b]} u_n \, \mathrm{d} \sigma 
+    = \lim_{n \to \infty} \int_{[a, b]} u \, \mathrm{d} \sigma
+\]
+
+\noindent $\mathbf{\tau}$:
+当 $\tau$ 的间断点仅有有限个或没有间断点时, 显然有
+\[
+    \lim_{n \to \infty} \int_{a}^{b} u_n \, \mathrm{d} \tau = \int_{a}^{b} u \, \mathrm{d} \tau
+\]
+故下面对 $\tau$ 有无限个间断点的情形进行证明.
+设 $\tau$ 的间断点为 $\{ t_{i} \}_{i \in \mathbb{N}}$,
+$\tau$ 在 $t_i$ 附近的全变差为 $a_i$ $\left( i = 1, 2, \dots \right)$.
+于是, $\mathrm{V} \left( \tau \right) = \sum_{i = 1}^{\infty} \left| a_i \right|$.
+故对任意的 $\epsilon > 0$, 存在 $k$ 使得 $\sum_{i = k + 1}^{\infty} \left| a_i \right| < \epsilon$.
+$\{ u_{n} \}_{n \in \mathbb{N}}$ 处处收敛于 $u$, 故存在 $N$ 使得对任意的 $n > N$ 有
+\[
+    \left| u_n \left( t_i \right) - u \left( t_i \right) \right| < \epsilon
+    , \quad i \in \mathbb{N}, i \leqslant k
+\]
+于是
+\begin{align*}
+    \int_{a}^{b} u_n - u \, \mathrm{d} \sigma
+    &= \sum_{i = 1}^{\infty}\left( u_n \left( t_i \right) - u \left( t_i \right) \right) a_i \\
+    &= \sum_{i = 1}^{k}\left( u_n \left( t_i \right) - u \left( t_i \right) \right) a_i
+        + \sum_{i = k + 1}^{\infty}\left( u_n \left( t_i \right) - u \left( t_i \right) \right) a_i \\
+    &< \epsilon \sum_{i = 1}^{k} \left| a_i \right| + M \sum_{i = k + 1}^{\infty} \left| a_i \right| \\
+    &< \left( \mathrm{V} \left( \tau \right) + M \right) \epsilon
+\end{align*}
+故
+\[
+    \lim_{n \to \infty} \int_{[a, b]} u_n - u \, \mathrm{d} \tau = 0
+    , \quad
+    \lim_{n \to \infty} \int_{[a, b]} u_n \, \mathrm{d} \tau 
+    = \lim_{n \to \infty} \int_{[a, b]} u \, \mathrm{d} \tau
+\]
+
+\subsection{补充题 3}
+此命题在一般情况下不成立, 且 Per Enflo 已经给出反例了.
+$X = Y = l^p$ 时, 第 28 题也给出了反例.
+$Y$ 为有限维赋范空间时, 此命题显然成立.
+
+\subsection{补充题 4} % Pettis 定理
+记典型映射为 $\phi$.
+$X$ 自反, 故 $\phi^{-1} \left( X_0^{**} \right)$ 为 $X$ 的闭子空间, 记为 $Y$.
+要证明 $X_0$ 是自反空间, 只需证 $Y = X_0$,
+$X_0 \subset Y$ 是显然的, 故只需证 $Y \subset X_0$, 用反证法证明之.
+假设 $Y \subset X_0$ 不成立, 则存在 $y \in Y \setminus X_0, y \neq 0$.
+由 $X_0$ 是闭子空间以及 Hahn-Banach 定理可得, 存在 $X$ 上的泛函使得:
+\[
+    \| f \| = 1,
+    \quad \left| f \left( y \right) \right| = \| y \|,
+    \quad f \left( X_0 \right) = \left\{ 0 \right\}
+\]
+将定义域限制在 $X_0$ 上, 则 $f$ 也可视为 $X_0$ 上的线性泛函, 此时 $f$ 为 $X_0$ 上的 $0$ 线性泛函.
+但是 $f \left( y \right) = \phi \left( y \right) \left( f \right) = 0$ 与 $\left| f \left( y \right) \right| = \| y \| > 0$ 矛盾.
+故假设不成立, 即 $Y \subset X_0$, $X_0$ 为自反空间.
+
+\end{document}

@@ -1,0 +1,90 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\subsection{判断题}
+\noindent 1.
+True. $\Theta_0 \subsetneqq \Theta$,
+故 $\sup_{\theta \in \Theta_0} L \left( X, \theta \right)
+\leqslant \sup_{\theta \in \Theta} L \left( X, \theta \right)$.
+$\forall \theta \in \Theta$, $L \left( X, \theta \right) \geqslant 0$, 故 $\lambda \left( X \right) \geqslant 0$.
+
+\noindent 2.
+False. $\alpha$ 越小, 拒绝域越小, 越可能接受原假设.
+于是当 $\alpha < p$ 值时应该接受原假设. 
+
+\noindent 3.
+False. $p$ 值不一定存在, 更无论是否小于 $0.06$ 了. 当然 $p$ 若存在则必然小于 $0.06$.
+
+\noindent 4.
+False. 对于任意给定的样本, $\theta$ 实际上已经确定下来了, 虽然实际上可能不知道其确切值, 于是零假设是否正确也是确定的, 讨论其概率是无意义的.
+
+\noindent 5.
+False. 记似然比为 $\varphi$, 则 $\varphi \left( x_1, \dots, x_n \right) > \lambda$ 的充要条件为 $p \left( x_1, \dots , x_n \right) < \alpha$.
+如果 $p = \frac{1}{\lambda}$, 则 $\varphi \left( x_1, \dots, x_n \right) > \lambda$ 等价于 $p \left( x_1, \dots, x_n \right) < \frac{1}{\varphi \left( x_1, \dots, x_n \right)}$.
+综上, 有 $\alpha = \frac{1}{\varphi \left( x_1, \dots, x_n \right)}$, $\alpha$ 是一个任意取的数, 故矛盾.
+
+\subsection{案例 1}
+假设样本是简单随即样本且符合标准正态分布.
+记 $X = \left( x_1, \dots, x_{19} \right)$ 分别为 1989 至 2007 年的数据.
+广义似然比
+\[
+    \lambda \left( X \right)
+    = \frac{\displaystyle\sup_{\sigma^2 \leqslant 11.67^2} L \left( X, \sigma^2 \right)}{\displaystyle\sup_{\sigma^2 = 11.67^2} L \left( X, \sigma^2 \right)}
+    = \sqrt{e} \left( \frac{19}{18} \right)^{19}
+\]
+为一常数, 又 $\sigma^2$ 实际可由标准差推出, 并且 $\sigma^2 = \frac{18}{19} 11.67^2 < 11.67^2$.
+故对于任意的 $\alpha$, 都应拒绝原假设, 即 $p$ 值为 $0$.
+
+\subsection{案例 2}
+记男性数据为 $X = \left( x_1, \dots, x_8 \right)$, 女性数据为 $Y = \left( y_1, \dots, y_8 \right)$.
+
+在假设方差相等的情况下, 考虑以下检验问题:
+\[
+    H_0: \mu_1 = \mu_2 \leftrightarrow H_\alpha: \mu_1 \neq \mu_2
+\]
+其中显著性水平 $\alpha = 0.05$.
+利用广义似然比检验法可得否定域为
+\[
+    W = \left\{
+        \left( x_1, \dots, x_8, y_1, \dots, y_8 \right) : \left| T \right| > C
+    \right\}
+\]
+其中
+\[
+    T = \frac{\overline{X} - \overline{Y}}{\sqrt{\sum_{i = 1}^{8} \left( x_i - \overline{X} \right)^2 + \sum_{i = 1}^{8} \left( y_i - \overline{Y} \right)^2}} * 2 \sqrt{14}
+\]
+符合自由度为 $14$ 的 $t$ 分布, $C = t_{1 - \frac{\alpha}{2}} \left( 14 \right)$.
+代入数据得 $T \left( X, Y \right) = 2.4 > C = 2.1$.
+故 $(X, Y) \in W$, 应拒绝原假设, 男性与女性存在差异.
+
+若不假设方差相等, 则应使用近似分布.
+
+\subsection{案例 3}
+设离散型随机变量 $X$, 其中 $X$ 取值范围为 $i = 1, 2, \dots, 12$, $P \left( X = i \right)$ 为自杀者在第 $i$ 个自杀的概率.
+则我们需检验的假设 $H_0$: $P \left( X = i \right) = \frac{1}{6} \left( i = 1, 2, \dots, 12 \right)$.
+使用统计量 $V = \sum_{i = 1}^{12} \left( \nu_i - \frac{n}{12} \right) / \frac{n}{12}$, 其中 $\nu_i$ 为自杀者在第 $i$ 个月自杀的人数.
+那么在 $H_0$ 下, $V$ 近似服从 11 个自由度的 $\chi^2$ 分布.
+代入数据可得, 此时的 $V = 0.3 < 4.4 = \chi_{0.95}^2 \left( 11 \right)$.
+故应接受原假设, 即自杀率与月份无关.
+
+\subsection{案例 4}
+若采用正态分布来近似, 则原问题转化为检验该分布的期望是否为 $\frac{3}{4}$.
+利用广义似然比方法可得否定域为
+\[
+    W = \left\{ (X_1, X_2, \dots, X_n) : \left| T \right| > C \right\}
+\]
+其中
+\[
+    T = \frac{\sqrt{n} \left( \overline{X} - \frac{3}{4} \right)}{\sqrt{\frac{1}{n - 1} \sum_{i = 1}^{n} \left( X_i - \overline{X} \right)^2}}
+    , \quad
+    C = t_{1 - \frac{2}{\alpha}} \left( n - 1 \right)
+\]
+代入数据可得 $T = - 0.88$, $C$ 在 $\alpha$ 取 0.05, 0.01, 0.001 下分别为 $1.96, 2.58, 3.30$.
+故应接受原假设, 即 $p = \frac{3}{4}$.
+
+代入数据可得在 $\alpha$ 取 0.05, 0.01, 0.001 下,
+$p_{\frac{\alpha}{2}} \left( s_0 \right)$ 分别等于 0.71, 0.70, 0.69, 都应拒绝原假设.
+
+上面的结果之间相互矛盾, 不过越精确的检验应当越严格, 以至于可能使得精确的检验拒绝原假设, 不那么精确的检验却接受原假设.
+
+\end{document}

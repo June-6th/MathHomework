@@ -1,0 +1,375 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+% 习题四
+\subsection{第 1 题}
+$T$ 为内积空间: \\
+$\forall \left\{ x_n \right\}_{n \in \mathbb{N}} \in H$,
+\[
+    \left( \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ x_n \right\}_{n \in \mathbb{N}} \right)
+    = \sum_{n = 1}^{\infty} \left( x_n , x_n \right)
+    \geqslant 0
+\]
+故 $\left( \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ x_n \right\}_{n \in \mathbb{N}} \right) = 0$
+当且仅当 $\forall n \in \mathbb{N}$, $x_n = 0$, 此即 $\left\{ x_n \right\}_{n \in \mathbb{N}} = 0$. \\
+$\forall \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ y_n \right\}_{n \in \mathbb{N}} \in H$,
+\begin{align*}
+    \left( \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ y_n \right\}_{n \in \mathbb{N}} \right)
+    &= \sum_{n = 1}^{\infty} \left( x_n, y_n \right)
+    = \sum_{n = 1}^{\infty} \overline{\left( y_n, x_n \right)} \\
+    &= \overline{\sum_{n = 1}^{\infty} \left( y_n, x_n \right)}
+    = \overline{\left( \left\{ y_n \right\}_{n \in \mathbb{N}}, \left\{ x_n \right\}_{n \in \mathbb{N}} \right)}
+\end{align*}
+$\forall \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ y_n \right\}_{n \in \mathbb{N}}\in H, \alpha \in \mathbb{K}$,
+\begin{align*}
+    \left( \alpha \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ y_n \right\}_{n \in \mathbb{N}}\right)
+    &= \sum_{n = 1}^{\infty} \left( \alpha x_n, y_n \right)
+    = \sum_{n = 1}^{\infty} \alpha \left( x_n, y_n \right) \\
+    &= \alpha \sum_{n = 1}^{\infty} \left( x_n , y_n \right)
+    = \alpha \left( \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ y_n \right\}_{n \in \mathbb{N}} \right)
+\end{align*}
+$\forall \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ y_n \right\}_{n \in \mathbb{N}}, \left\{ z_n \right\}_{n \in \mathbb{N}} \in H$,
+\begin{align*}
+    \left( \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ y_n \right\}_{n \in \mathbb{N}} + \left\{ z_n \right\}_{n \in \mathbb{N}} \right)
+    &= \sum_{n = 1}^{\infty} \left( x_n, y_n + z_n \right)
+    = \sum_{n = 1}^{\infty} \left( x_n, y_n \right) + \left( x_n , z_n \right) \\
+    &= \sum_{n = 1}^{\infty} \left( x_n, y_n \right) + \sum_{n = 1}^{\infty} \left( x_n, z_n \right) \\
+    &= \left( \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ y_n \right\}_{n \in \mathbb{N}} \right) + \left( \left\{ x_n \right\}_{n \in \mathbb{N}}, \left\{ z_n \right\}_{n \in \mathbb{N}} \right)
+\end{align*}
+
+下证 $\forall n \in \mathbb{N}$, $H_n$ 为 Hilbert 空间当且仅当 $H$ 为 Hilbert 空间.
+
+\noindent \textbf{必要性}:
+任意 $H$ 中的柯西列 $\left\{ X_i \right\}_{i \in \mathbb{N}}$,
+任意 $i \in \mathbb{N}$, 记 $X_i $ 为 $\{ x_n^{\left( i \right)} \}_{n \in \mathbb{N}}$.
+任意 $\varepsilon > 0$, 存在 $N$ 使得对于任意的 $p, q> N$
+\[
+    \left\| X_p - X_q \right\|
+    = \left( \sum_{n = 1}^{\infty} \left( x_n^{\left( p \right)}, x_n^{\left( q \right)} \right) \right)^{\frac{1}{2}}
+    = \left( \sum_{n = 1}^{\infty} \left\| x_n^{\left( p \right)} - x_n^{\left( q \right)} \right\|^2 \right)^{\frac{1}{2}}
+    < \varepsilon
+\]
+对于任意 $n \in \mathbb{N}$ 一致的有
+\[
+    \left\| x_n^{\left( p \right)} - x_n^{\left( q \right)} \right\| \leqslant \left\| X_p - X_q \right\| < \varepsilon
+\]
+故 $H_n$ 中的点列 $\{ x_n^{\left( i \right)} \}_{i \in \mathbb{N}}$ 为柯西列,
+又 $H_n$ 为完备度量空间, 故可设
+\[
+    x_n = \lim_{i \to \infty} x_n^{\left( i \right)}\in H_n
+    , \quad
+    X = \left\{ x_n \right\}_{n \in \mathbb{N}} \in H
+\]
+$X_q, X \in H$, 故存在 $k$ 使得
+\[
+    \left( \sum_{n = k + 1}^{\infty} \left\| x_n^{\left( q \right)} \right\|^2 \right)^{\frac{1}{2}} < \varepsilon
+    , \quad
+    \left( \sum_{n = k + 1}^{\infty} \left\| x_n \right\|^2 \right)^{\frac{1}{2}} < \varepsilon
+\]
+由 $x_n$ 的定义可知, 存在 $M$ 使得任意 $p > M$ 有
+\[
+    \left\| x_n^{\left( p \right)} - x_n \right\| < \frac{1}{\sqrt{k}} \varepsilon
+    , \quad
+    n = 1, 2, \dots, k
+\]
+令 $p > \max \left\{ M, N \right\}$, 则
+\begin{align*}
+    \left\| X_p - X \right\|
+    &= \left( \sum_{n = 1}^{\infty} \left\| x_n^{\left( p \right)} - x_n \right\|^2 \right)^{\frac{1}{2}} \\
+    &< \left( \sum_{n = 1}^{k} \left\| x_n^{\left( p \right)} - x_n \right\|^2 \right)^{\frac{1}{2}}
+        + \left( \sum_{n = k + 1}^{\infty} \left\| x_n^{\left( p \right)} - x_n \right\|^2 \right)^{\frac{1}{2}} \\
+    &< \left( \sum_{n = 1}^{k} \left\| x_n^{\left( p \right)} - x_n \right\|^2 \right)^{\frac{1}{2}}
+        + \left( \sum_{n = k + 1}^{\infty} \left\| x_n^{\left( p \right)} - x_n^{\left( q \right)} \right\|^2 \right)^{\frac{1}{2}} \\
+    &\quad + \left( \sum_{n = k + 1}^{\infty} \left\| x_n^{\left( q \right)} \right\|^2 \right)^{\frac{1}{2}}
+        + \left( \sum_{n = k + 1}^{\infty} \left\| x_n \right\|^2 \right)^{\frac{1}{2}} \\
+    &< \left( \sum_{n = 1}^{k} \frac{1}{k} \varepsilon^2 \right)^{\frac{1}{2}} + \left\| X_p - X_q \right\| + \varepsilon + \varepsilon \\
+    &< 4 \varepsilon
+\end{align*}
+故 $\left\{ X_i \right\}_{i \in \mathbb{N}}$ 收敛于 $X$, 即 $H$ 完备.
+
+\noindent \textbf{充分性}:
+任意 $n \in \mathbb{N}$, $H_n$ 中的柯西列 $\left\{ x_i \right\}_{i \in \mathbb{N}}$,
+考虑映射 $\phi_n : H_n \to H$, 其中
+\[
+    \phi_n \left( x \right)
+    = ( \overbrace{0, \dots, x}^n, 0, \dots )
+\]
+容易看出 $\phi_n$ 为等距同态,
+故 $\left\{ \phi_n \left( x_i \right) \right\}_{i \in \mathbb{N}}$ 为 $H$ 中的柯西列.
+由于 $H$ 为完备空间, 故点列 $\left\{ \phi \left( x_i \right) \right\}_{i \in \mathbb{N}}$ 极限存在,
+将其记为 $X$, $X$ 的第 $n$ 个分量记为 $x$.
+\[
+    \lim_{i \to \infty} \left\| x - x_i \right\|
+    \leqslant \lim_{i \to \infty} \left\| X - \phi \left( x_i \right) \right\|
+    = 0
+\]
+故 $H_n$ 完备, 于是其为 Hilbert 空间.
+
+\subsection{第 2 题}
+\noindent \textbf{必要性}:
+$\forall f \in H^*, \ker f = M$, 由 $f \neq 0$ 可得 $M \subsetneq H$, 故 $M^\bot$ 不为零空间.
+假设 $M^\bot$ 不为一维子空间, 则 $M^\bot$ 中存在两个线性无关元 $e_1, e_2$.
+而
+\[
+    f\left( f \left( e_2 \right) e_1 - f \left( e_1 \right) e_2 \right)
+    = f \left( e_2 \right) f \left( e_1 \right) - f \left( e_1 \right) f \left( e_2 \right)
+    = 0
+\]
+于是 $f \left( e_2 \right) e_1 - f \left( e_1 \right) e_2 \in \ker f = M$, 又 $f \left( e_2 \right) e_1 - f \left( e_1 \right) e_2 \in M^\bot$,
+故 $f \left( e_2 \right) e_1 - f \left( e_1 \right) e_2 = 0$, 此与 $e_1, e_2$ 线性无关矛盾,
+故假设不成立, 即 $M^\bot$ 为一维子空间.
+
+\noindent \textbf{充分性}:
+$M^\bot$ 为一维子空间, 故 $M^\bot$ 与 $\mathbb{K}$ 等距同构, 设 $\phi$ 为一个 $M^\bot$ 到 $\mathbb{K}$ 的等距同构映射.
+$\forall x \in H$, $\exists! y \in M, z \in M^\bot$, 使得 $x = y + z$.
+设映射 $f$, 其中 $f \left( x \right) = \phi \left( z \right)$.
+$z$ 的唯一性保证了 $f$ 定义的合理性, 显然 $f$ 为 $H$ 连续上的连续线性泛函且 $\ker f = M$.
+
+\subsection{第 3 题}
+$H = M \mathlarger{\mathlarger{\oplus}} M^\bot$,
+则 $\forall x \in H$, $\exists! y \in M, z \in M^\bot$, 使得 $x = y + z$;
+且对于任意限制在 $M$ 和 $M^\bot$ 上皆为连续线性泛函的 $f$, $f$ 可唯一地线性延拓至 $H$ 上.
+故唯一性得证, 下证存在性.
+设映射 $g$, 其中 $\forall x \in H$, $g \left( x \right) = f \left( y \right)$, 则 $g$ 限制在 $M$ 上为 $f$ 且 $g$ 在其定义域上线性.
+$g \left( M^\bot \right) = f \left( \left\{ 0 \right\} \right) = \left\{ 0 \right\}$, 故 $\ker g \supset M^\bot$.
+\begin{align*}
+    \left\| g \right\|
+    &=
+    \sup_{x \neq 0, x \in H}
+    \frac{\left\| g \left( x \right) \right\|}{\left\| x \right\|}
+    =
+    \sup_{\substack{x \neq 0, x \in H, \\ y \neq 0, y \in M}}
+    \frac{\left\| f \left( y \right) \right\|}{\left\| x \right\|} \\
+    &\leqslant
+    \sup_{\substack{x \neq 0, x \in H, \\ y \neq 0, y \in M}}
+    \frac{\left\| f \left( y \right) \right\|}{\left\| y \right\|}
+    =
+    \sup_{y \neq 0, y \in M}
+    \frac{\left\| f \left( y \right) \right\|}{\left\| y \right\|}
+    = \left\| f \right\|
+\end{align*}
+又
+\begin{align*}
+    \left\| g \right\|
+    &=
+    \sup_{x \neq 0, x \in H}
+    \frac{\left\| g \left( x \right) \right\|}{\left\| x \right\|}
+    \geqslant
+    \sup_{y \neq 0, y \in M}
+    \frac{\left\| g \left( y \right) \right\|}{\left\| y \right\|}
+    =
+    \sup_{y \neq 0, y \in M}
+    \frac{\left\| f \left( y \right) \right\|}{\left\| y \right\|}
+    =
+    \left\| f \right\|
+\end{align*}
+故 $g$ 为 $H$ 上的连续线性泛函且 $\left\| g \right\| = \left\| f \right\|$.
+
+\subsection{第 4 题}
+$\left( M^\bot \right)^\bot$ 与 $M^\bot$ 正交, 故 $\left( M^\bot \right)^\bot$ 为闭子空间.
+$\forall x \in M, y \in M^\bot$, $\left( x, y \right) = 0$, $x \in \left( X^\bot \right)^\bot$, 故 $M \subset \left( M^\bot \right)^\bot$.
+记包含 $M$ 的最小闭子空间为 $M'$, 则 $M' \subset \left( M^\bot \right)^\bot$.
+假设 $\left( M^\bot \right)^\bot \subset M'$ 不成立, 则存在 $x_0 \in \left( M^\bot \right)^\bot \setminus M', x_0 \neq 0$.
+由 $M'$ 是闭子空间可得, $\left\| x_0 - M' \right\| > 0$, 记其为 $d$.
+$M' \oplus M^\bot$ 在 $H$ 中稠密, 故存在 $\left\{ y_n \right\}_{n \in \mathbb{N}} \subset M'$, $\left\{ z_n \right\}_{n \in \mathbb{N}} \subset M^\bot$, 使得 $\left\{ y_n + z_n \right\}_{n \in \mathbb{N}}$ 极限为 $x_0$.
+$\left\| x_0 - M' \right\| = d > 0$,
+$x_0 \in \left( M^\bot \right)^\bot$,
+$\left\{ y_n \right\}_{n \in \mathbb{N}} \subset M' \subset \left( M^\bot \right)^\bot$,
+$\left\{ z_n \right\}_{n \in \mathbb{N}} \subset M^\bot$,
+故对于任意的 $n \in \mathbb{N}$ 有
+\[
+    \left\| x_0 - y_n \right\| \geqslant d
+    , \quad
+    x_0 - y_n \bot z_n
+\]
+于是
+\[
+    \lim_{n \to \infty} \left\| x_0 - \left( y_n + z_n \right) \right\|^2
+    = \lim_{n \to \infty} \left\| x_0 - y_n \right\|^2  + \lim_{n \to \infty} \left\| z_n \right\|^2
+    \geqslant d^2
+    > 0
+\]
+但此与 $\left\{ y_n + z_n \right\}_{n + z_n \in \mathbb{N}}$ 收敛于 $x_0$ 矛盾, 故假设不成立, 则 $M' = \left( M^\bot \right)^\bot$.
+
+\subsection{第 5 题}
+设到 $M$ 上的正交投影对应的映射为 $\phi$, 由题设可知, $\phi$ 在 $H$ 上有定义.
+由 $\phi$ 定义可知, $\phi \left( H \right) \subset M$, $\phi \left( M \right) = M$,
+又 $M \subset H$, 故 $\phi \left( M \right) = M$.
+$\phi$ 为连续线性映射, 故 $\phi \left( H \right)$ 为闭子空间, 于是 $M$ 亦为闭子空间.
+
+\subsection{第 6 题}
+自由模的基之间彼此等势.
+可分空间具有 Schauder 基.
+标准正交系的势小于等于基的势, 故可分内积空间的任意标准正交系最多为一可数集.
+
+\subsection{第 7 题}
+$\forall x \in H$, 设 $f_x : \left\{ e_\alpha \right\}_{\alpha \in I} \to \mathbb{R}$, 其中 $\forall e_\alpha \in I$, $f_x \left( e_\alpha \right) = \left| \left( x, e_\alpha \right) \right|$.
+$\forall \, 0 < a < b < \infty$,
+\[
+    \left\| x \right\|^2
+    \geqslant
+    \sum_{f_x \left( e_\alpha \right) \in \left( a, b \right]} \left\| \left( x, e_\alpha \right) e_\alpha \right\|^2
+    \geqslant
+    \sum_{f_x \left( e_\alpha \right) \in \left( a, b \right]} a^2
+\]
+$\left\| x \right\| < \infty$, 故 $f_x^{-1} \left( \left( a, b \right] \right)$ 只有有限个元素.
+\[
+    f_x^{-1} \left( \mathbb{R}^{+} \right)
+    =
+    \bigcup_{i \in \mathbb{Z}} f_x^{-1} \left( \left( e^i, e^{i + 1} \right] \right)
+\]
+故 $f_x^{-1} \left( \mathbb{R}^{+} \right)$ 中至多含有可数个元素, 即 $x$ 关于这个标准正交系的 Fourier 系数至多有可数个不为零.
+
+\subsection{第 8 题}
+对一般的内积空间也成立.
+取 $f$, 其中 $\forall \, x \in H$, $f \left( x \right) = \left( x, x_0 \right)$.
+$\left\| f \right\| = \left\| x_0 \right\|$, 故 $f \in H^*$.
+$\left\{ x_n \right\}_{n \in \mathbb{N}} \xrightarrow{W} x_0$,
+故
+\[
+    \lim_{n \to \infty} \left( x_n, x_0 \right)
+    =
+    \lim_{n \to \infty} f \left( x_n \right)
+    =
+    f \left( x_0 \right)
+    =
+    \left( x_0, x_0 \right)
+\]
+于是
+\begin{align*}
+    \lim_{n \to \infty} \left\| x_n - x_0 \right\|^2
+    &=
+    \lim_{n \to \infty} \left( x_n - x_0, x_n - x_0 \right) \\
+    &=
+    \lim_{n \to \infty} \left\| x_n \right\|^2 - \lim_{n \to \infty} \left( x_n, x_0 \right) - \overline{\lim_{n \to \infty} \left( x_n, x_0 \right)} + \lim_{n \to \infty} \left\| x_0 \right\|^2 \\
+    &= \left\| x_0 \right\|^2 - \left\| x_0 \right\|^2 - \overline{\left\| x_0 \right\|^2} + \left\| x_0 \right\|^2 \\
+    &=
+    0
+\end{align*}
+即 $\displaystyle\lim_{n \to \infty} x_n = x_0$.
+
+\subsection{附加题 1}
+同第 7 题, 此略.
+
+\subsection{附加题 2}
+$\left\| u - v \right\|, \left\| u + v \right\|, \left\| u \right\|, \left\| v \right\|$ 皆为 $1$, 故
+\[
+    \left\| u - v \right\|^2 + \left\| u + v \right\|^2
+    = 2
+    \neq 4
+    = 2 \left( \left\| u \right\|^2 + \left\| v \right\|^2 \right)
+\]
+不符合平行四边形公式, $C \left[ a, b \right]$ 不是内积空间.
+
+\subsection{附加题 3}
+$\forall \, n \in \mathbb{N}$, 记 $e_n = ( \overbrace{0, 0, \dots , 1}^n , 0, \dots)$.
+$\left\| e_1 + e_2 \right\| = \left\| e_1 - e_2 \right\| = 2^{\frac{1}{p}}$, $\left\| e_1 \right\| = \left\| e_2 \right\| = 1$,
+于是 $p \neq 2$ 时有
+\[
+    \left\| e_1 + e_2 \right\|^2 + \left\| e_1 - e_2 \right\|^2
+    = 2 * 2^{\frac{1}{p}}
+    \neq 2 * 2
+    = 2 \left( \left\| e_1 \right\|^2 + \left\| e_2 \right\|^2 \right)
+\]
+故平行四边形公式不成立, 则 $l^p$ 不是内积空间.
+
+\subsection{附加题 4}
+$\forall \, x, y, z \in X$
+\begin{align*}
+    \left( x, x \right)
+    &= \frac{1}{4} \left( \left\| x + x \right\|^2 - \left\| x - x \right\| + i \left\| x + i x \right\|^2 - i \left\| x - i x \right\|^2 \right) \\
+    &= \frac{1}{4} \left( 4 \left\| x \right\|^2 - 0 + 2 i \left\| x \right\|^2 - 2 i \left\| x \right\|^2 \right) \\
+    &= \left\| x \right\|^2
+\end{align*}
+故 $\left( x, x \right) \geqslant 0$, 等号成立当且仅当 $x = 0$.
+\begin{align*}
+    \left( x, y \right)
+    &= \frac{1}{4} \left( \left\| x + y \right\|^2 - \left\| x - y \right\|^2 + i \left\| x + i y \right\|^2 - i \left\| x - i y \right\|^2 \right) \\
+    &= \overline{\frac{1}{4} \left( \left\| x + y \right\|^2 - \left\| x - y \right\|^2 + i \left\| x - i y \right\|^2 - i \left\| x + i y \right\|^2 \right)} \\
+    &= \overline{\frac{1}{4} \left( \left\| y + x \right\|^2 - \left\| y - x \right\|^2 + i \left\| y + i x \right\|^2 - i \left\| y - i x \right\|^2 \right)} \\
+    &= \overline{\left( y, x \right)}
+\end{align*}
+故 $\left( x, y \right) = \left( y, x \right)$. \\
+首先
+\begin{align*}
+    & \left\| x + y + z \right\|^2 - \left\| x + y - z \right\|^2 \\
+    =& \left\| x + y + z \right\|^2 - \left( 2 \left\| x - z \right\|^2 + 2 \left\| y \right\|^2 - \left\| x - y - z \right\|^2 \right) \\
+    =& \left\| x + \left( y + z \right) \right\|^2 + \left\| x - \left( y + z \right) \right\|^2 - 2 \left\| x - z \right\|^2 - 2 \left\| y \right\|^2 \\
+    =& 2 \left\| x \right\|^2 + 2 \left\| y + z \right\|^2 - 2 \left\| x - z \right\|^2 - 2 \left\| y \right\|^2 \\
+    =& 2 \left\| x \right\|^2 + 2 \left\| z \right\|^2 - \left( \left\| y \right\|^2 + \left\| z \right\|^2 \right) + 2 \left\| y + z \right\|^2 - 2 \left\| x - z \right\|^2 \\
+    =& \left\| x + z \right\|^2 + \left\| x - z \right\|^2 - \left\| y + z \right\|^2 - \left\| y - z \right\|^2 + 2 \left\| y + z \right\|^2 - 2 \left\| x - z \right\|^2 \\
+    =& \left( \left\| x + z \right\|^2 - \left\| x - z \right\|^2 \right) + \left( \left\| y + z \right\|^2 + \left\| y - z \right\|^2 \right)
+\end{align*}
+于是
+\begin{align*}
+    & \left( x + y, z \right) \\
+    =& \frac{1}{4} \left( \left\| x + y + z \right\|^2 - \left\| x + y - z \right\|^2 + i \left\| x + y + i z \right\|^2 - i \left\| x + y - i z \right\|^2 \right) \\
+    =& \frac{1}{4} \left( \left\| x + y + z \right\|^2 - \left\| x + y - z \right\|^2 \right) + \frac{i}{4} \left( \left\| x + y + i z \right\|^2 - \left\| x + y - i z \right\|^2 \right) \\
+    =& \frac{1}{4} \left( \left( \left\| x + z \right\|^2 - \left\| x - z \right\|^2 \right) + \left( \left\| y + z \right\|^2 - \left\| y - z \right\|^2 \right) \right) \\
+    & + \frac{i}{4} \left( \left( \left\| x + i z \right\|^2 - \left\| x - i z \right\|^2 \right) + \left( \left\| y + i z \right\|^2 - \left\| y - i z \right\|^2 \right) \right) \\
+    =& \frac{1}{4} \left( \left\| x + z \right\|^2 - \left\| x - z \right\|^2 + i \left\| x + i z \right\|^2 - i \left\| x - i z \right\|^2 \right) \\
+    & + \frac{1}{4} \left( \left\| y + z \right\|^2 - \left\| y - z \right\|^2 + i \left\| y + i z \right\|^2 - i \left\| y - i z \right\|^2 \right) \\
+    =& \left( x, z \right) + \left( y, z \right)
+\end{align*}
+设 $F$, 其中
+\[
+    F = \left\{ \alpha \mid \alpha \in \mathbb{C}, \forall \, x, y \in X, \left( \alpha x, y \right) = \alpha \left( x, y \right) \right\}
+\]
+只需证明 $F = \mathbb{C}$, $F \subset \mathbb{C}$, 故只需证 $\mathbb{C} \subset F$.
+\begin{align*}
+     & \left( 0 x, y \right) \\
+    =& \left( 0, y \right) \\
+    =& \frac{1}{4} \left( \left\| 0 + y \right\|^2 - \left\| 0 - y \right\|^2 + i \left\| 0 + i y \right\|^2 - i \left\| 0 - i y \right\|^2 \right) \\
+    =& \frac{1}{4} \left( \left\| y \right\|^2 - \left\| y \right\|^2 + i \left\| y \right\|^2 - i \left\| y \right\|^2 \right) \\
+    =& 0 \\
+    =& 0 \left( x, y \right)
+\end{align*}
+又
+\[
+    \left( 1 x, y \right)
+    = \left( x , y \right)
+    = 1 \left( x, y \right)
+\]
+故 $0, 1 \in F$. \\
+$\forall \, \alpha, \beta \in F$, 由已经证明的分配律可得
+\begin{align*}
+     & \left( \left( \alpha - \beta \right) x , y \right) \\
+    =& \left( \alpha x - \beta x , y \right) \\
+    =& \left( \alpha x, y \right) - \left( \beta x, y \right) \\
+    =& \alpha \left( x, y \right) - \beta \left( x, y \right) \\
+    =& \left( \alpha - \beta \right) \left( x, y \right)
+\end{align*}
+$\forall \, \alpha, \beta \in F, \beta \neq 0$,
+\begin{align*}
+     & \left( \frac{\alpha}{\beta} x, y \right) \\
+    =& \left( \alpha \left( \frac{1}{\beta} x \right) , y \right) \\
+    =& \alpha \left( \frac{1}{\beta} x , y \right) \\
+    =& \frac{\alpha}{\beta} * \beta \left( \frac{1}{\beta} x, y \right) \\
+    =& \frac{\alpha}{\beta} \left( \beta * \frac{1}{\beta} x, y \right) \\
+    =& \frac{\alpha}{\beta} \left( x, y \right)
+\end{align*}
+故 $F$ 为 $\mathbb{C}$ 的子域, 则 $\mathbb{Q} \subset F$.
+\begin{align*}
+     & \left( i x, y \right) \\
+    =& \frac{1}{4} \left( \left\| i x + y \right\|^2 - \left\| ix - y \right\| + i \left\| i x + i y \right\|^2 - i \left\| i x - i y \right\|^2 \right) \\
+    =& \frac{i}{4} \left( \left\| x + y \right\|^2 - \left\| x - y \right\|^2 + i \left\| x + i y \right\|^2 - i \left\| x - i y \right\|^2 \right) \\
+    =& i \left( x, y \right)
+\end{align*}
+故 $\mathbb{Q} \left( i \right) \subset F$, 由范数的连续性可知 $\overline{\mathbb{Q} \left( i \right)} \subset F$.
+又 $\overline{\mathbb{Q}} = \mathbb{C}$, 于是 $\mathbb{C} \subset F$.
+
+\subsection{附加题 5}
+记 $\left\| x - M \right\|$ 为 $d$.
+假设存在 $z \in M$, $\left\| x - z \right\| = \left\| x - y \right\| = d$.
+由平行四边形公式可得
+\begin{gather*}
+    2 \left( \left\| x - y \right\|^2 + \left\| x - z \right\|^2 \right)
+    =
+    \left\| x - y + x - z \right\|^2 + \left\| z - y \right\|^2 \\
+    \left\| x - \frac{y + z}{2} \right\|^2 + \frac{1}{4} \left\| z - y \right\|^2
+    =
+    d^2
+\end{gather*}
+又 $\left\| x - \displaystyle \frac{y + z}{2} \right\|^2 \leqslant d^2$, 故 $\left\| z - y \right\| = 0$, 即 $z = y$.
+
+\end{document}

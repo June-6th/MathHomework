@@ -1,0 +1,91 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+% 习题 6-4
+\subsection{第 4 题}
+首先 $u = 0$ 确实为方程的解, 下证唯一性.
+设 $u$ 为一解, $u$ 在 $\Omega$ 上的最大值点为 $X_1$, 则 $u \left( X_1 \right) \geqslant u \mid_{\partial \Omega} = 0$.
+又 $\forall \, i \in \mathbb{N}, 1 \leqslant i \leqslant n$,
+\[
+    \frac{\partial^2 u}{\partial x_i^2} \leqslant 0
+    , \quad
+    \frac{\partial u}{\partial x_i} = 0
+\]
+故 $u \left( X_1 \right)^3 = \Delta_n u \left( X_1 \right) + \left| \bigtriangledown u \left( X_1 \right) \right| \leqslant 0$,
+即 $u \left( X_1 \right) \leqslant 0$.
+于是 $u \left( X_1 \right) = 0$, 即 $u$ 在 $\Omega$ 上的最大值为 $0$.
+容易验证 $- u$ 也是原方程的解, 于是 $- u$ 在 $\Omega$ 上的最大值为 $0$,
+此即 $u$ 在 $\Omega$ 上的最小值为 $0$.
+综上, $u = 0$.
+
+\subsection{第 10 题}
+$\overline{\Omega}$ 为紧集, 故 $u$ 在 $\overline{\Omega}$ 上可取到最大值, 设最大值点为 $x_1$.
+首先证明
+\[
+    u \left( x_1 \right)
+    =
+    \max_{x \in \overline{\Omega}} u \left( x \right)
+    \leqslant
+    \max \{ \max_{x \in \partial \Omega} \left| g \left( x \right) \right|, \max_{x \in \Omega} \left| f \left( x \right) \right|^{\frac{1}{2}} \}
+\]
+$u \left( x_1 \right) \leqslant 0$ 时, 上式显然成立.
+$u \left( x_1 \right) > 0$ 时, 若 $x_1 \in \partial \Omega$, 则
+\[
+    u \left( x_1 \right)
+    \leqslant
+    \max_{x \in \partial \Omega} \left| g \left( x \right) \right|
+    \leqslant
+    \max \{ \max_{x \in \partial \Omega} \left| g \left( x \right) \right|, \max_{x \in \Omega} \left| f \left( x \right) \right|^{\frac{1}{2}} \}
+\]
+若 $x_1 \in \Omega$, 则 $\forall \, i \in \mathbb{N}, 1 \leqslant i \leqslant n$,
+\[
+    \frac{\partial^2 u}{\partial x_i^2} \leqslant 0
+\]
+于是
+\begin{gather*}
+    u \left( x_1 \right)^2
+    =
+    \left| u \left( x_1 \right) \right| u \left( x_1 \right)
+    =
+    f \left( x_1 \right) + \Delta_n u \left( x_1 \right)
+    \leqslant
+    f \left( x_1 \right) \\
+    u \left( x_1 \right)
+    \leqslant
+    \max_{x \in \Omega} \left| f \left( x \right) \right|^{\frac{1}{2}}
+    \leqslant
+    \max \{ \max_{x \in \partial \Omega} \left| g \left( x \right) \right|, \max_{x \in \Omega} \left| f \left( x \right) \right|^{\frac{1}{2}} \}
+\end{gather*}
+综上
+\[
+    u \left( x_1 \right)
+    =
+    \max_{x \in \overline{\Omega}} u \left( x \right)
+    \leqslant
+    \max \{ \max_{x \in \partial \Omega} \left| g \left( x \right) \right|, \max_{x \in \Omega} \left| f \left( x \right) \right|^{\frac{1}{2}} \}
+\]
+观察到 $- u$ 满足以下方程
+\[
+    \begin{cases}
+        - \Delta_n u + \left| u \right| u = - f, & x \in \Omega \\
+        u \mid_{\partial \Omega} = - g
+    \end{cases}
+\]
+由上可知
+\[
+    \max_{x \in \overline{\Omega}} - u \left( x \right)
+    \leqslant
+    \max \{ \max_{x \in \partial \Omega} \left| - g \left( x \right) \right|, \max_{x \in \Omega} \left| - f \left( x \right) \right|^{\frac{1}{2}} \}
+    =
+    \max \{ \max_{x \in \partial \Omega} \left| g \left( x \right) \right|, \max_{x \in \Omega} \left| f \left( x \right) \right|^{\frac{1}{2}} \}
+\]
+综上,
+\[
+    \max_{x \in \overline{\Omega}} \left| u \left( x \right) \right|
+    =
+    \max \{ \max_{x \in \overline{\Omega}} - u \left( x \right), \max_{x \in \overline{\Omega}} u \left( x \right) \}
+    \leqslant
+    \max \{ \max_{x \in \partial \Omega} \left| g \left( x \right) \right|, \max_{x \in \Omega} \left| f \left( x \right) \right|^{\frac{1}{2}} \}
+\]
+
+\end{document}

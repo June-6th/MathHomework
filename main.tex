@@ -1,12 +1,17 @@
 % !TEX program = xelatex
 % !TEX encoding = UTF-8
 \documentclass[UTF8, a4paper, zihao=-4, linespread=1.5]{ctexrep}
-% 章节样式
+% 章节标题中不显示章节编号
 \ctexset{
-    % 不显示章节编号
-    chapter/numbering = false,
-    section/numbering = false,
-    subsection/numbering = false,
+    chapter = {
+        numbering = false,
+    },
+    section = {
+        numbering = false,
+    },
+    subsection = {
+        numbering = false,
+    },
 }
 % 页面格式
 \pagestyle{plain}
@@ -14,9 +19,7 @@
 \usepackage[left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 % 超链接
 \usepackage{hyperref}
-\hypersetup{
-    colorlinks = true,
-}
+\hypersetup{colorlinks = true}
 
 % amsmath
 \usepackage{amsmath, amssymb, amsfonts, mathrsfs}

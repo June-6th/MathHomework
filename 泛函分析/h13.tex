@@ -1,0 +1,137 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+% 习题 4
+\subsection{第 9 题}
+任意 $x \in \overline{M}$, 存在 $M$ 中的柯西列 $\left\{ x_n \right\}_{n \in \mathbb{N}}$ 使得 $\displaystyle \lim_{n \to \infty} x_n = x$.
+$T$ 为有界限性算子, 故 $\left\{ T \left( x_n \right) \right\}_{n \in \mathbb{N}}$ 为 $H$ 中的柯西列.
+故可令
+\[
+    S \left( x \right) = \begin{cases}
+        \displaystyle \lim_{n \to \infty} T \left( x_n \right), & x \in \overline{M} \setminus M \\
+        T \left( x \right), & x \in M
+    \end{cases}
+\]
+由 $T$ 有界线性算子可得, $S$ 为 $\overline{M}$ 上的有界线性算子, 且 $\left\| S \right\| = \left\| T \right\|$.
+任意 $x \in H$, 存在唯一的 $y \in \overline{M}, z \in \left( \overline{M} \right)^\bot$, 使得 $x = y + z$.
+令 $\widetilde{T} \left( x \right) = S \left( y \right)$, 则 $\widetilde{T}$ 为 $H$ 上的有界线性算子.
+\[
+    \| \widetilde{T} \|
+    =
+    \sup_{x \in H, x \neq 0} \frac{\left\| T \left( x \right) \right\|}{\left\| x \right\|}
+    \geqslant
+    \sup_{y \in \overline{M}, y \neq 0} \frac{\left\| T \left( y \right) \right\|}{\left\| y \right\|}
+    =
+    \sup_{y \in \overline{M}, y \neq 0} \frac{\left\| S \left( y \right) \right\|}{\left\| y \right\|}
+    =
+    \left\| S \right\| \\
+\]
+$\left\| x \right\|^2 = \left\| y \right\|^2 + \left\| z \right\|^2$, 故
+\[
+    \| \widetilde{T} \|
+    =
+    \sup_{x \in H, x \neq 0} \frac{\left\| T \left( x \right) \right\|}{\left\| x \right\|}
+    \leqslant
+    \sup_{\substack{x \in H, x \neq 0 \\ y \in M, y \neq 0}} \frac{\left\| T \left( x \right) \right\|}{\left\| y \right\|}
+    =
+    \sup_{y \in M, y \neq 0} \frac{\left\| S \left( y \right) \right\|}{\left\| y \right\|}
+    =
+    \left\| S \right\|
+\]
+故 $\| \widetilde{T} \| = \left\| S \right\| = \left\| T \right\|$.
+
+\subsection{第 11 题}
+设 $\phi : H \to H^*$, 其中
+\[
+    \phi \left( z \right) \left( x \right) = \left( x, z \right)
+    , \forall \, x, z \in H
+\]
+若 $T = 0$, 则 $T$ 为有界线性算子.
+若 $T \neq 0$, 可取 $z \in H$, 使得 $z \neq 0$.
+$\phi$ 为等距映射, 故 $\phi \left( z \right)$ 为非零线性泛函.
+任意 $H$ 中的开集 $X$,
+由非零线性泛函都是开影射可知 $\phi \left( z \right) \left( X \right) = \left( X, z \right)$ 为开集.
+\[
+    \left( X, z \right)
+    = \left( T \left( T^{-1} \left( X \right) \right), z \right)    = \left( T^{-1} \left( X \right), T \left( z \right) \right)
+    = \phi \left( T \left( z \right) \right) \left( T^{-1} \left( X \right) \right)
+\]
+故 $\phi \left( T \left( z \right) \right) \left( T^{-1} \left( X \right) \right)$ 为开集,
+又 $\phi \left( T \left( z \right) \right)$ 为连续影射, 于是 $T^{-1} \left( X \right)$ 为开集, 故 $T$ 为连续影射.
+综上 $T$ 为有界线性算子.
+
+\subsection{第 12 题}
+命题关于 $\left\{ e_n \right\}_{n \in \mathbb{N}}$, $\left\{ e'_n \right\}_{n \in \mathbb{N}}$ 对称, 故只需证明必要性.
+若 $\left\{ e_n \right\}_{n \in \mathbb{N}}$ 完备, 由于 $H$ 是 Hilbert 空间, $\left\{ e'_n \right\}_{n \in \mathbb{N}}$ 完备等价于 $\left\{ e'_n \right\}_{n \in \mathbb{N}}$ 完全.
+下面用反证法证明 $\left\{ e'_n \right\}_{n \in \mathbb{N}}$ 完全.
+若 $\left\{ e_n{'} \right\}_{n \in \mathbb{N}}$ 不完全, 则存在 $x \in H, x \neq 0$ 使得 $\forall \, n \in \mathbb{N}$, $x \bot e_n^{'}$.
+$\left\{ e_n \right\}_{n \in \mathbb{N}}$ 完备, 故
+\begin{align*}
+     & \left\| x \right\|^2 \\
+    =& \sum_{n = 1}^{\infty} \left( x, e_n \right)^2 \left\| e_n \right\|^2 \\
+    =& \sum_{n = 1}^{\infty} \left( x, e_n - e'_n \right)^2 \\
+    \leqslant & \sum_{n = 1}^{\infty} \left\| x \right\|^2 \left\| e_n - e'_n \right\|^2 \\
+    =& \left\| x \right\|^2 \sum_{n = 1}^{\infty} \left\| e_n - e'_n \right\|^2 \\
+    <& \left\| x \right\|^2
+\end{align*}
+此与 $x \neq 0$ 矛盾, 故假设不成立, 即 $\left\{ e'_n \right\}_{n \in \mathbb{N}}$ 完全, $\left\{ e'_n \right\}_{n \in \mathbb{N}}$ 完备.
+
+\subsection{第 13 题}
+\noindent 1) \textbf{唯一性}:
+设 $A, B \in \mathscr{B} \left( H \right)$, 其中 $\forall \, x, y \in H$
+\[
+    \varphi \left( x, y \right) = \left( A \left( x \right), y \right) = \left( B \left( x \right), y \right)
+    , \quad
+    \left\| \varphi \right\| = \left\| A \right\| = \left\| B \right\|
+\]
+由 $y$ 的任意性可知, $A \left( x \right) = B \left( x \right)$, 再由 $x$ 的任意性可知, $A = B$.
+
+\noindent \textbf{存在性}:
+设 $\phi : H \to H^*$, 其中
+\[
+    \phi \left( x \right) \left( y \right) = \left( y, x \right)
+    , \forall \, y, x \in H
+\]
+$H$ 为 Hilbert 空间, 故由 Riesz 表示定理可知 $\phi$ 为等距同构.
+设 $\psi : H \to \left( H \to \mathbb{K} \right)$, 其中 $\forall \, y \in H$, $\psi \left( x \right) \left( y \right) = \overline{\varphi \left( x, y \right)}$.
+由 $\varphi$ 关于第一个变量的线性性可知 $\psi$ 为线性算子.
+由 $\varphi$ 关于第二个变量的共轭线性性可知, $\forall \, x \in H$, $\psi \left( x \right)$ 为线性算子.
+\[
+    \left\| \psi \left( x \right) \left( y \right) \right\|
+    =
+    \overline{\varphi \left( x, y \right)}
+    \leqslant
+    C \left\| x \right\| \left\| y \right\|
+\]
+故 $\left\| \psi \left( x \right) \right\| \leqslant C \left\| x \right\|$ 为有界线性算子,
+即 $\psi$ 的值域包含于 $H^*$, $\psi \in \mathscr{B} \left( H, H^* \right)$.
+$\phi$ 为等距同构, 故 $\phi^{-1}$ 存在且 $\phi^{-1} \in \mathscr{B} \left( H^*, H \right)$,
+于是 $\phi^{-1} \circ \psi \in \mathscr{B} \left( H \right)$,
+取 $A$ 为 $\phi^{-1} \circ \psi$,
+\begin{align*}
+     & \left( A \left( x \right), y \right) \\
+    =& \left( \left( \phi^{-1} \circ \psi \right) \left( x \right), y \right) \\
+    =& \overline{\left( y, \left( \phi^{-1} \circ \psi \right) \left( x \right) \right)} \\
+    =& \overline{\left( \phi \circ \phi^{-1} \circ \psi \right) \left( x \right) \left( y \right)} \\
+    =& \overline{\left( \left( \phi \circ \phi^{-1} \right) \circ \psi \right) \left( x \right) \left( y \right)} \\
+    =& \overline{\psi \left( x \right) \left( y \right)} \\
+    =& \overline{\overline{\varphi \left( x, y \right)}} \\
+    =& \varphi \left( x, y \right)
+\end{align*}
+故 $\varphi \left( x, y \right) = \left( A \left( x \right), y \right)$.
+$\phi$ 为等距同构, 故 $\left\| A \right\| = \left\| \psi \right\|$, 而
+\begin{align*}
+     & \left\| \psi \right\| \\
+    =& \sup_{x \in H, \left\| x \right\| = 1} \left\| \psi \left( x \right) \right\| \\
+    =& \sup_{x \in H, \left\| x \right\| = 1} \left( \sup_{y \in H, \left\| y \right\| = 1} \left| \psi \left( x \right) \left( y \right) \right| \right) \\
+    =& \sup_{\substack{x \in H, \left\| x \right\| = 1 \\ y \in H, \left\| y \right\| = 1}} \left| \psi \left( x \right) \left( y \right) \right| \\
+    =& \sup_{\substack{x \in H, \left\| x \right\| = 1 \\ y \in H, \left\| y \right\| = 1}} \left| \overline{\psi \left( x \right) \left( y \right)} \right| \\
+    =& \sup_{\substack{x \in H, \left\| x \right\| = 1 \\ y \in H, \left\| y \right\| = 1}} \left| \varphi \left( x, y \right) \right| \\
+    =& \left\| \varphi \right\|
+\end{align*}
+故 $\left\| A \right\| = \left\| \varphi \right\|$.
+
+\noindent 2)
+$\forall \, x, y \in H$, $\left( A \left( y \right), x \right) = \varphi \left( y, x \right) = \overline{\varphi \left( x, y \right)} = \overline{\left( A \left( x \right), y \right)} = \left( y, A \left( x \right) \right)$, 故 $A$ 为自共轭算子.
+
+\end{document}

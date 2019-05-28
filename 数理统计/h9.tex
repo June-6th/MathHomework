@@ -1,0 +1,117 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\subsection{第 1 题}
+\noindent\paragraph*{1.}
+$\forall \, i = 1, \dots, n, \varepsilon_i = y_i - \beta_0 - \beta_1 x_i$, 故似然函数 $L \left( \boldsymbol{\varepsilon}; \sigma^2, \beta_0, \beta_1 \right)$,
+\begin{align} \label{eq:1}
+    L \left( \boldsymbol{\varepsilon}; \sigma^2, \beta_0, \beta_1 \right)
+    =& \prod_{i = 1}^{n} \frac{1}{\sqrt{2 \pi} \sigma} \exp \left( - \frac{\varepsilon_i^2}{2 \sigma^2} \right) \\
+    =& \left( \frac{1}{\sqrt{2 \pi} \sigma} \right)^n \prod_{i = 1}^{n} \exp \left( - \frac{\left( y_i - \beta_0 - \beta_1 x_i \right)^2}{2 \sigma^2} \right) \label{eq:2} \\
+    =& \left( \frac{1}{\sqrt{2 \pi} \sigma} \right)^n \exp \left( - \frac{1}{2 \sigma^2} \sum_{i = 1}^{n} \left( y_i - \beta_0 - \beta_1 x_i \right)^2 \right) \notag
+\end{align}
+有指数函数的单调性可知, 最大似然估计与最小二乘估计的结果一致.
+即
+\begin{align*}
+    \widehat{\beta_1} &= \frac{l_{xy}}{l_{xx}} \\
+    \widehat{\beta_0} &= \overline{y} - \widehat{\beta_1} \overline{x} \\
+    \widehat{\sigma^2} &= \frac{\left( l_{xx} l_{yy} - l_{xy}^2 \right)}{n l_{xx}}
+\end{align*}
+
+\noindent\paragraph*{2.}
+等式 (\ref{eq:1}) 中不带入 $\varepsilon_i = y_i - \beta_0 - \beta_1 x_i$, 可得
+\[
+    \widehat{\sigma^2} = \frac{1}{n} \sum_{i = 1}^{n} \varepsilon_i^2
+\]
+$\varepsilon_i, \left( i = 1, \dots, n \right)$ 为独立同分布,
+故 $E \widehat{\sigma^2} = E \varepsilon_i^2 = \sigma^2$,
+即 $\widehat{\sigma^2}$ 为 $\sigma^2$ 的无偏估计.
+
+\noindent\paragraph*{3.}
+$\forall \, i = 1, \dots, n, \varepsilon_i = y_i - \beta_0 - \beta_1 \overset{iid}{\thicksim} N \left( 0, \sigma^2 \right)$,
+故似然函数 $L \left( \boldsymbol{x}; \sigma^2, \beta_0, \beta_1 \right)$,
+\begin{align*}
+    L \left( \boldsymbol{x}; \sigma^2, \beta_0, \beta_1 \right)
+    =& \prod_{i = 1}^{n} \frac{1}{\sqrt{2 \pi} \sigma} \exp \left( - \frac{\varepsilon_i^2}{2 \sigma^2} \right) \\
+    =& \left( \frac{1}{\sqrt{2 \pi} \sigma} \right)^n \prod_{i = 1}^{n} \exp \left( - \frac{\left( y_i - \beta_0 - \beta_1 x_i \right)^2}{2 \sigma^2} \right)
+\end{align*}
+恰为等式 (\ref{eq:2}), 故估计的结果是相同的.
+
+\subsection{第 2 题}
+\noindent\paragraph*{1.}
+$\sum_{i = 1}^{n} \left( y_i - \beta x_i \right)^2 = \sum_{i = 1}^{n} x_i^2 \beta^2 - 2 \sum_{i = 1}^{n} x_i y_i \beta + \sum_{i = 1}^{n} y_i^2$,
+故 $\beta$ 的最小二乘估计 $\widehat{\beta}$ 为
+\[
+    \widehat{\beta} = \frac{\sum_{i = 1}^{n} x_i y_i}{\sum_{i = 1}^{n} x_i^2}
+\]
+不难想到用残差平方和 $\sum_{i = 1}^{n} ( y_i - \widehat{\beta} x_i )^2$ 来构造 $\sigma^2$ 的无偏估计.
+\begin{align*}
+    E \left( \sum_{i = 1}^{n} ( y_i - \widehat{\beta} x_i )^2 \right)
+    &= E \left( \sum_{i = 1}^{n} \left( \beta x_i + \varepsilon_i - \widehat{\beta} x_i \right)^2 \right) \\
+    &= \sum_{i = 1}^{n} E \left( x_i^2 ( \beta - \widehat{\beta} )^2 + 2 x_i \varepsilon_i ( \beta - \widehat{\beta} ) + \varepsilon_i^2 \right) \\
+    &= \left( \sum_{i = 1}^{n} x_i^2 \right) E (\beta - \widehat{\beta})^2 + 2 \sum_{i = 1}^{n} x_i \varepsilon_i (\beta - \widehat{\beta}) + \sum_{i = 1}^{n} E \left( \varepsilon_i^2 \right) \\
+    &= n \sigma^2 - 2 \sum_{i = 1}^{n} x_i E (\varepsilon_i (\widehat{\beta} - \beta)) + \left( \sum_{i = 1}^{n} x_i^2 \right) E (\widehat{\beta} - \beta)^2
+\end{align*}
+而
+\begin{gather*}
+    \begin{aligned}
+        \widehat{\beta} - \beta
+        &= \frac{\sum_{i = 1}^{n} x_i y_i}{\sum_{j = 1}^{n} x_j^2} - \beta \\
+        &= \frac{\sum_{i = 1}^{n} x_i \left( \beta x_i + \varepsilon_i \right)}{\sum_{j = 1}^{n} x_j^2} - \beta \\
+        &= \frac{\sum_{i = 1}^{n} x_i \varepsilon_i}{\sum_{j = 1}^{n} x_j^2} + \beta \frac{\sum_{i = 1}^{n} x_i^2}{\sum_{j = 1}^{n}x_j^2} - \beta \\
+        &= \frac{\sum_{i = 1}^{n} x_i \varepsilon_i}{\sum_{j = 1}^{n} x_j^2}
+    \end{aligned} \\
+    \begin{aligned}
+        E (\varepsilon_i (\widehat{\beta} - \beta))
+        &= \frac{1}{\sum_{j = 1}^{n} x_j^2} E \left( \varepsilon_i \frac{\sum_{j = 1}^{n} x_j \varepsilon_j}{\sum_{k = 1}^{n} x_k^2} \right) \\
+        &= \frac{1}{\sum_{j = 1}^{n} x_j^2} \sum_{k = 1}^{n} x_k E \left( \varepsilon_i \varepsilon_k \right) \\
+        &= \frac{x_i \sigma^2}{\sum_{j = 1}^{n} x_j^2}
+    \end{aligned} \\
+    \begin{aligned}
+        E (\widehat{\beta} - \beta)^2
+        &= E \left( \frac{\sum_{i = 1}^{n} x_i \varepsilon_i}{\sum_{j = 1}^{n} x_j^2} \right)^2 \\
+        &= \left( \frac{1}{\sum_{k = 1}^{n} x_k^2} \right)^2 \sum_{1 \leqslant i, j \leqslant n} x_i x_j E \left( \varepsilon_i \varepsilon_j \right) \\
+        &= \left( \frac{1}{\sum_{k = 1}^{n} x_k^2} \right)^2 \sum_{i = 1}^{n} x_i^2 \sigma^2 \\
+        &= \frac{\sigma^2}{\sum_{i = 1}^{n} x_i^2}
+    \end{aligned}
+\end{gather*}
+代入上式可得
+\[
+    E \left( \sum_{i = 1}^{n} ( y_i - \widehat{\beta} x_i )^2 \right)
+    =
+    \left( n - 1 \right) \sigma^2
+\]
+故
+\[
+    \widehat{\sigma^2} = \frac{1}{n - 1} \sum_{i = 1}^{n} (y_i - \widehat{\beta} x_i)^2
+\]
+为 $\sigma^2$ 的无偏估计.
+
+\noindent\paragraph*{2.}
+\[
+    E (\widehat{\beta} - \beta)
+    = E \left( \frac{\sum_{i = 1}^{n} x_i \varepsilon_i}{\sum_{j = 1}^{n} x_j^2} \right)
+    = 0
+\]
+故
+\[
+    Var (\widehat{\beta})
+    = E (\widehat{\beta} - \beta)^2
+    = \frac{\sigma^2}{\sum_{i = 1}^{n} x_i^2}
+\]
+于是
+\[
+    Var \left( y_0 \right)
+    = \frac{x_0^2 \sigma^2}{\sum_{i = 1}^{n} x_i^2}
+\]
+
+\subsection{第 3 题}
+\noindent\paragraph*{1.}
+记天数为 $D$, 品系 A 的数据为 $A$, 品系 B 的数据为 $B$.
+代入数据可得 $\beta_{0A} = 145.3, \beta_{0B} = 131.3, \beta_{1A} = 0.742, \beta_{1B} = 0.452$.
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{./f9_3_1.png}
+\end{figure}
+
+\end{document}

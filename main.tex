@@ -1,5 +1,6 @@
 % !TEX program = xelatex
 % !TEX encoding = UTF-8
+\providecommand{\ROOT}{.}
 \documentclass[UTF8, a4paper, zihao=-4, linespread=1.5]{ctexrep}
 % 章节标题中不显示章节编号
 \ctexset{
@@ -27,7 +28,12 @@
 \usepackage{relsize}
 
 \usepackage{subfiles}
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\notinsubfile}[1]{}
+
 \begin{document}
+\renewcommand{\onlyinsubfile}[1]{}
+\renewcommand{\notinsubfile}[1]{#1}
 
 % 目录中仅显示 chapter 和 section
 \setcounter{tocdepth}{1}
@@ -44,10 +50,10 @@
 
 % 课程
 \chapter{泛函分析}
-\subfile{泛函分析.tex}
+\subfile{\ROOT/泛函分析/main.tex}
 \chapter{偏微分方程}
-\subfile{偏微分方程.tex}
+\subfile{\ROOT/偏微分方程/main.tex}
 \chapter{数理统计}
-\subfile{数理统计.tex}
+\subfile{\ROOT/数理统计/main.tex}
 
 \end{document}

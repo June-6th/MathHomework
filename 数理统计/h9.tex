@@ -4,10 +4,10 @@
 \subsection{第 1 题}
 \noindent\paragraph*{1.}
 $\forall \, i = 1, \dots, n, \varepsilon_i = y_i - \beta_0 - \beta_1 x_i$, 故似然函数 $L \left( \boldsymbol{\varepsilon}; \sigma^2, \beta_0, \beta_1 \right)$,
-\begin{align} \label{eq:1}
+\begin{align} \label{eq:2}
     L \left( \boldsymbol{\varepsilon}; \sigma^2, \beta_0, \beta_1 \right)
     =& \prod_{i = 1}^{n} \frac{1}{\sqrt{2 \pi} \sigma} \exp \left( - \frac{\varepsilon_i^2}{2 \sigma^2} \right) \\
-    =& \left( \frac{1}{\sqrt{2 \pi} \sigma} \right)^n \prod_{i = 1}^{n} \exp \left( - \frac{\left( y_i - \beta_0 - \beta_1 x_i \right)^2}{2 \sigma^2} \right) \label{eq:2} \\
+    =& \left( \frac{1}{\sqrt{2 \pi} \sigma} \right)^n \prod_{i = 1}^{n} \exp \left( - \frac{\left( y_i - \beta_0 - \beta_1 x_i \right)^2}{2 \sigma^2} \right) \label{eq:3} \\
     =& \left( \frac{1}{\sqrt{2 \pi} \sigma} \right)^n \exp \left( - \frac{1}{2 \sigma^2} \sum_{i = 1}^{n} \left( y_i - \beta_0 - \beta_1 x_i \right)^2 \right) \notag
 \end{align}
 有指数函数的单调性可知, 最大似然估计与最小二乘估计的结果一致.
@@ -19,7 +19,7 @@ $\forall \, i = 1, \dots, n, \varepsilon_i = y_i - \beta_0 - \beta_1 x_i$, 故�
 \end{align*}
 
 \noindent\paragraph*{2.}
-等式 (\ref{eq:1}) 中不带入 $\varepsilon_i = y_i - \beta_0 - \beta_1 x_i$, 可得
+等式 (\ref{eq:2}) 中不带入 $\varepsilon_i = y_i - \beta_0 - \beta_1 x_i$, 可得
 \[
     \widehat{\sigma^2} = \frac{1}{n} \sum_{i = 1}^{n} \varepsilon_i^2
 \]
@@ -35,7 +35,7 @@ $\forall \, i = 1, \dots, n, \varepsilon_i = y_i - \beta_0 - \beta_1 \overset{ii
     =& \prod_{i = 1}^{n} \frac{1}{\sqrt{2 \pi} \sigma} \exp \left( - \frac{\varepsilon_i^2}{2 \sigma^2} \right) \\
     =& \left( \frac{1}{\sqrt{2 \pi} \sigma} \right)^n \prod_{i = 1}^{n} \exp \left( - \frac{\left( y_i - \beta_0 - \beta_1 x_i \right)^2}{2 \sigma^2} \right)
 \end{align*}
-恰为等式 (\ref{eq:2}), 故估计的结果是相同的.
+恰为等式 (\ref{eq:3}), 故估计的结果是相同的.
 
 \subsection{第 2 题}
 \noindent\paragraph*{1.}
@@ -111,7 +111,7 @@ $\sum_{i = 1}^{n} \left( y_i - \beta x_i \right)^2 = \sum_{i = 1}^{n} x_i^2 \bet
 代入数据可得 $\beta_{0A} = 145.3, \beta_{0B} = 131.3, \beta_{1A} = 0.742, \beta_{1B} = 0.452$.
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.8\linewidth]{./f9_3_1.png}
+    \includegraphics[width=0.8\linewidth]{数理统计/f9_3_1.png}
 \end{figure}
 
 \end{document}

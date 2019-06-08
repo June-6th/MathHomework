@@ -1,0 +1,114 @@
+\providecommand{\ROOT}{..}
+\documentclass[\ROOT/main.tex]{subfiles}
+\begin{document}
+
+\subsection{第 1 题}
+\noindent\textbf{正定性}:
+$\forall \, x \in \mathrm{Lip} [a, b]$,
+\[
+    \left\| x \right\|
+    =
+    \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{x \left( t \right) - x \left( s \right)}{t - s} \right| + \sup_{t \in [a, b]} \left| x \left( t \right) \right|
+    \geqslant
+    \sup_{t \in [a, b]} \left| x \left( t \right) \right|
+    \geqslant
+    0
+\]
+若 $\left\| x \right\| = 0$, 则 $\sup_{t \in [a, b]} \left| x \left( t \right) \right| = 0$, 于是 $x = 0$.
+
+\noindent\textbf{齐次性}:
+$\forall \, x \in \mathrm{Lip} [a, b], k \in \mathbb{K}$,
+\begin{align*}
+    \left\| k x \right\|
+    &=
+    \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{k x \left( t \right) - k x \left( s \right)}{t - s} \right| + \sup_{t \in [a, b]} \left| k x \left( t \right) \right| \\
+    &=
+    \left| k \right| \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{x \left( t \right) - x \left( s \right)}{t - s} \right| + \left| k \right| \sup_{t \in [a, b]} \left| x \left( t \right) \right| \\
+    &=
+    \left| k \right| \left\| x \right\|
+\end{align*}
+
+\noindent\textbf{三角不等式}:
+$\forall \, x, y \in \mathrm{Lip} [a, b]$,
+\begin{align*}
+    \left\| x + y \right\|
+    &=
+    \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{\left( x \left( t \right) + y \left( t \right) \right) - \left( x \left( s \right) + y \left( s \right) \right)}{t - s} \right| + \sup_{t \in [a, b]} \left| x \left( t \right) + y \left( t \right) \right| \\
+    &=
+    \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{\left( x \left( t \right) - x \left( s \right) \right) + \left( y \left( t \right) - y \left( s \right) \right)}{t - s} \right| + \sup_{t \in [a, b]} \left| x \left( t \right) + y \left( t \right) \right| \\
+    &\leqslant
+    \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{x \left( t \right) - x \left( s \right)}{t - s} \right| + \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{y \left( t \right) - y \left( s \right)}{t - s} \right| \\
+    &\quad +
+    \sup_{t \in [a, b]} \left| x \left( t \right) \right| + \sup_{t \in [a, b]} \left| y \left( t \right) \right| \\
+    &=
+    \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{x \left( t \right) - x \left( s \right)}{t - s} \right| + \sup_{t \in [a, b]} \left| x \left( t \right) \right| \\
+    &\quad +
+    \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{y \left( t \right) - y \left( s \right)}{t - s} \right| + \sup_{t \in [a, b]} \left| y \left( t \right) \right| \\
+    &= \left\| x \right\| + \left\| y \right\|
+\end{align*}
+
+\noindent\textbf{完备性}:
+设 $\left\{ x_n \right\}_{n \in \mathbb{N}}$ 为 $\mathrm{Lip} [a, b]$ 中的柯西列.
+由于 $\left\| \cdot \right\| \geqslant \left\| \cdot \right\|_{\infty}$, 故 $\left\{ x_n \right\}_{n \in \mathbb{N}}$ 也是 $\mathrm{L}^\infty [a, b]$ 中的柯西列.
+又 $\mathrm{L}^\infty [a, b]$ 为 Banach 空间, 故存在 $x \in \mathrm{L}^\infty [a, b]$, 使得 $\displaystyle \lim_{n \to \infty} \left\| x - x_n \right\|_{\infty} = 0$.
+于是证明 $\displaystyle \lim_{n \to \infty} \left\| x - x_n \right\| = 0$ 等价于证明
+\[
+    \lim_{n \to \infty} \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{\left( x - x_n \right)\left( t \right) - \left( x - x_n \right)\left( s \right)}{t - s} \right|
+    =
+    0
+\]
+下面用反证法证明之.
+
+假设上式不成立, 则存在 $\varepsilon_0 > 0$, 使得 $\forall \, N \in \mathbb{N}, \exists \, n > N$ 使得
+\[
+    \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{\left( x - x_n \right)\left( t \right) - \left( x - x_n \right)\left( s \right)}{t - s} \right|
+    >
+    \varepsilon_0
+\]
+$\left\{ x_n \right\}_{n \in \mathbb{N}}$ 为 $\mathrm{Lip} [a, b]$ 的柯西列, 故 $\forall \, \varepsilon > 0, \exists \, N_\varepsilon$,
+\[
+    \left\| x_n - x_m \right\| < \varepsilon
+    , \quad
+    \forall \, n, m > N_\varepsilon
+\]
+结合上两式可得, $\forall \, \varepsilon > 0, \exists \, N, n \in \mathbb{N}, n > N$ 以及 $t_0, s_0 \in \mathrm{Lip} [a, b], t_0 \neq s_0$ 使得
+\begin{gather*}
+    \left| \frac{\left( x - x_n \right)\left( t_0 \right) - \left( x - x_n \right)\left( s_0 \right)}{t_0 - s_0} \right|
+    >
+    \varepsilon_0
+    \\
+    \left\| x_n - x_m \right\| < \varepsilon
+    , \quad
+    \forall \, m \in \mathbb{N}, m > N
+\end{gather*}
+令 $\varepsilon < \varepsilon_0$于是 $\forall \, m > N$
+\begin{align*}
+    &
+    \left| \frac{\left( x - x_m \right) \left( t_0 \right) - \left( x - x_m \right) \left( s_0 \right)}{t_0 - s_0} \right|
+    \\
+    \geqslant&
+    \left| \left| \frac{\left( x - x_n \right) \left( t_0 \right) - \left( x - x_n \right) \left( s_0 \right)}{t_0 - s_0} \right| - \left| \frac{\left( x_n - x_m \right) \left( t_0 \right) - \left( x_n - x_m \right) \left( s_0 \right)}{t_0 - s_0} \right| \right|
+    \\
+    >& \,
+    \varepsilon_0 - \varepsilon
+\end{align*}
+但是由 $\displaystyle \lim_{m \to \infty} \left\| x - x_m \right\| = 0$ 可得
+\begin{align*}
+    &
+    \lim_{m \to \infty} \left| \frac{\left( x - x_m \right) \left( t_0 \right) - \left( x - x_m \right) \left( s_0 \right)}{t_0 - s_0} \right|
+    \\
+    \leqslant& \,
+    \frac{1}{\left| t_0 - s_0 \right|} \left( \left| \lim_{m \to \infty} \left( x - x_m \right) \left( t_0 \right) \right| + \left| \lim_{m \to \infty} \left( x - x_m \right) \left( s_0 \right) \right| \right)
+    \\
+    =& \,
+    0
+\end{align*}
+此式与上式矛盾, 故假设不成立, 即
+\[
+    \lim_{n \to \infty} \sup_{\substack{\left( t, s \right) \in [a, b] \times [a, b] \\ t \neq s}} \left| \frac{\left( x - x_n \right)\left( t \right) - \left( x - x_n \right)\left( s \right)}{t - s} \right|
+    =
+    0
+\]
+$\mathrm{Lip} [a, b]$ 为 Banach 空间.
+
+\end{document}

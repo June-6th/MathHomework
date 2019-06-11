@@ -2,6 +2,89 @@
 \documentclass[\ROOT/main.tex]{subfiles}
 \begin{document}
 
+\subsection{第 1 题}
+$F$ 检验的检验统计量为
+\[
+    F
+    =
+    \frac{U / 2}{Q / (n - 3)}
+    =
+    \frac{\left( n - 3 \right) \sum_{i = 1}^{n} (\widehat{y_i} - \bar{y})^2}{2 \sum_{i = 1}^{n} \left( y_i - \bar{y} \right)^2}
+\]
+$F$ 服从 $F (2, n - 3)$ 分布.
+$t$ 检验的检验统计量为
+\[
+    t
+    =
+    \frac{\sum_{i = 1}^{n} \left( \widehat{y_i} - y_i \right)^2}{n - 1}
+\]
+$t$ 服从 $t \left( n - 1 \right)$ 分布.
+若两个检验一致, 则存在函数 $f$ 使得 $f (F, t) = 0$ 对任意的具体数据和置信水平恒成立.
+显然 $f$ 是不存在的, 因为总偏差平方和, 回归平方和以及残差平方和之间有两个自由度, 故 $F$ 检验与 $t$ 检验不一致.
 
+\subsection{第 2 题}
+\noindent(a).
+由 $\mathrm{rank} \left( X \right) = p$ 可得,
+\begin{align*}
+    Cov ( \widehat{\beta}, \widehat{\beta} )
+    =&
+    Cov \left( \left( X^T X \right)^{-1} X^T Y, \left( X^T X \right)^{-1} X^T Y \right) \\
+    =&
+    \left( X^T X \right)^{-1} X^T Cov \left( Y, Y \right) \left( \left( X^T X \right)^{-1} X^T \right)^T \\
+    =&
+    \sigma^2 \left( X^T X \right)^{-1} X^T X \left( X^T X \right)^{-1} \\
+    =&
+    \sigma^2 \left( X^T X \right)^{-1}
+\end{align*}
+故 $Cov ( \widehat{\beta}, \widehat{\beta} )$ 为对角矩阵当且仅当 $X^T X$ 为对角矩阵, 即 $X_1, \dots, X_p$ 两两正交.
+
+\noindent(b).
+首先有:
+\begin{gather*}
+    Cov (Y, \widehat{Y})
+    =
+    Cov (\widehat{Y}, Y)
+    =
+    Cov (X (X^T X)^{-1} X^T Y, Y)
+    =
+    X (X^T X)^{-1} X^T Cov (Y, Y)
+    \\
+    \begin{split}
+        Cov (\widehat{Y}, \widehat{Y})
+        &=
+        Cov (X (X^T X)^{-1} X^T Y, X (X^T X)^{-1} X^T Y)
+        \\ &=
+        X (X^T X)^{-1} X^T (X (X^T X)^{-1} X^T)^T Cov (Y, Y)
+        \\ &=
+        X (X^T X)^{-1} X^T Cov (Y, Y)
+    \end{split}
+\end{gather*}
+故 $Cov (\widehat{Y}, \widehat{Y}) = Cov (Y, \widehat{Y}) = Cov (\widehat{Y}, Y)$, 可得
+\begin{align*}
+    & \quad
+    \sum_{i = 1}^{n} Var ( \widehat{y_i} ) + \sum_{i = 1}^{n} Var ( \widehat{\varepsilon_i} )
+    \\ &=
+    tr ( Cov (\widehat{Y}, \widehat{Y}) + Cov (\widehat{\varepsilon}, \widehat{\varepsilon}) )
+    \\ &=
+    tr ( Cov (\widehat{Y}, \widehat{Y}) + Cov (\widehat{Y} - Y, \widehat{Y} - Y) )
+    \\ &=
+    tr ( Cov (\widehat{Y}, \widehat{Y}) + Cov (\widehat{Y}, \widehat{Y}) - Cov (\widehat{Y}, Y) - Cov (Y, \widehat{Y}) + Cov (Y, Y))
+    \\ &=
+    tr ( Cov (Y, Y) )
+    \\ &=
+    n \sigma^2
+\end{align*}
+
+\noindent(c).
+极大似然检验即为 $F$ 检验, 故其检验统计量为
+\[
+    F
+    =
+    \frac{R^2 / p}{\left( 1 - R^2 \right) / \left( n - p - 1 \right)}
+    =
+    \frac{9 R^2}{5 \left( 1 - R^2 \right)}
+\]
+并在假设 $H_0$ 下服从 $F \left( 5, 9 \right)$ 分布.
+代入数据可得 $F = 2.49 < 3.48 = F_{0.95} \left( 5, 9 \right)$, 故应接受原假设.
 
 \end{document}
